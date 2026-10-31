@@ -1,579 +1,1406 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>James Ojubanire — Product & UI/UX Designer</title>
-  
-  <!-- Typography -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>James Oluwafemi Ojubanire — Product Designer</title>
+  <meta name="description" content="Portfolio of James Oluwafemi Ojubanire, Product Designer specializing in UI/UX, Design Systems, and Presentation/Document Design." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Space Grotesk & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS Engine -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            heading: ['Montserrat', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            inter: ['"Inter"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            consolas: ['Consolas', 'Courier New', 'monospace'],
+            'plus-jakarta': ['"Plus Jakarta Sans"', 'sans-serif'],
           },
           colors: {
-            bg: '#FFFFFF',
-            surface: '#F5F5F5',
-            'surface-dark': '#1A1A1A',
-            border: '#EAEAEA',
-            'border-dark': '#2E2E2E',
-            textPrimary: '#1A1A1A',
-            textSecondary: '#666666',
-            textMuted: '#999999',
+            canvas: '#FFFFFF',
+            surface: '#FFFFFF',
+            'surface-secondary': '#F5F5F5',
+            'hover-bg': '#F0F0F0',
+            primary: '#1A1A1A',
+            'text-primary': '#1A1A1A',
+            'text-secondary': '#666666',
+            'text-muted': '#999999',
+            'border-default': '#EAEAEA',
+            'border-strong': '#D6D6D6',
+            'dark-footer': '#1A1A1A',
+            'footer-text': '#B3B3B3',
+            'footer-divider': '#404040',
+            accent: '#5271FF'
+          },
+          boxShadow: {
+            subtle: '0 4px 20px rgba(0, 0, 0, 0.04)',
+          },
+          borderRadius: {
+            card: '12px',
           }
         }
       }
     }
   </script>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #1A1A1A;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .figma-input {
+      background-color: #FFFFFF;
+      border: 1px solid #EAEAEA;
+      border-radius: 12px;
+      color: #1A1A1A;
+      transition: all 0.2s ease;
+    }
+    .figma-input:focus {
+      outline: none;
+      border-color: #5271FF;
+      box-shadow: 0 0 0 1px #5271FF;
+    }
+    .figma-input::placeholder {
+      color: #999999;
+    }
+  </style>
 </head>
-<body class="bg-[#FFFFFF] text-[#1A1A1A] font-sans antialiased selection:bg-[#1A1A1A] selection:text-[#FFFFFF]">
+<body class="bg-white text-text-primary selection:bg-[#5271FF] selection:text-white">
 
-  <!-- Header / Nav -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#EAEAEA]">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="font-heading font-extrabold text-xl tracking-tight text-[#1A1A1A]">
-        JAMES OJUBANIRE
+  <!-- ================= STICKY HEADER / NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-border-default h-[68px] md:h-[80px] flex items-center transition-colors">
+    <div class="w-full px-6 sm:px-12 xl:px-[120px] flex items-center justify-between">
+      
+      <!-- Brand Logo / Identity -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-border-strong shrink-0 bg-surface-secondary flex items-center justify-center">
+          <img 
+            src="image 23.jpg" 
+            alt="James Ojubanire" 
+            class="w-full h-full object-cover object-top"
+            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80';"
+          />
+        </div>
+        <span class="font-bold text-base sm:text-lg tracking-tight text-text-primary group-hover:text-[#5271FF] transition font-display">James Ojubanire</span>
       </a>
 
-      <!-- Desktop Links -->
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#666666]">
-        <a href="#about" class="hover:text-[#1A1A1A] transition-colors">About</a>
-        <a href="#work" class="hover:text-[#1A1A1A] transition-colors">Work</a>
-        <a href="#credentials" class="hover:text-[#1A1A1A] transition-colors">Credentials</a>
-        <button onclick="toggleBlogView(true)" class="hover:text-[#1A1A1A] transition-colors">Blog</button>
-        <a href="#contact" class="hover:text-[#1A1A1A] transition-colors">Contact</a>
+      <!-- Middle: Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-[15px] font-medium text-text-secondary">
+        <a href="#projects" onclick="showPortfolioView()" class="px-3 py-1.5 rounded-[8px] hover:text-[#5271FF] hover:bg-surface-secondary transition duration-150">Works</a>
+        <a href="#blog" onclick="showBlogView(event)" class="px-3 py-1.5 rounded-[8px] hover:text-[#5271FF] hover:bg-surface-secondary transition duration-150">Blog</a>
+        <a href="#services" onclick="showPortfolioView()" class="px-3 py-1.5 rounded-[8px] hover:text-[#5271FF] hover:bg-surface-secondary transition duration-150">Services</a>
+        <a href="#experience" onclick="showPortfolioView()" class="px-3 py-1.5 rounded-[8px] hover:text-[#5271FF] hover:bg-surface-secondary transition duration-150">About</a>
+        <a href="#contact" onclick="showPortfolioView()" class="px-3 py-1.5 rounded-[8px] hover:text-[#5271FF] hover:bg-surface-secondary transition duration-150">Contact</a>
       </nav>
 
-      <div class="hidden md:flex items-center space-x-4">
-        <a 
-          href="James_Ojubanire_CV.pdf" 
-          download="James_Ojubanire_CV.pdf"
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] border border-[#1A1A1A] rounded-full hover:bg-[#1A1A1A] hover:text-white transition-all"
-        >
-          Download CV
+      <!-- Right: Action Buttons -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <a href="https://www.linkedin.com/in/james-ojubanire-b91287166?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex px-4 py-2.5 rounded-[12px] bg-white border border-border-default hover:border-[#5271FF] hover:text-[#5271FF] text-text-primary text-xs sm:text-sm font-medium transition leading-none">
+          LinkedIn
         </a>
+        <a href="#contact" onclick="showPortfolioView()" class="hidden sm:inline-flex px-5 py-2.5 rounded-[12px] bg-primary hover:bg-[#5271FF] text-white text-xs sm:text-sm font-semibold tracking-tight transition leading-none">
+          Let's Talk
+        </a>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default flex flex-col items-center justify-center gap-1.5 text-text-primary hover:text-[#5271FF] hover:border-[#5271FF] transition focus:outline-none" aria-label="Toggle navigation menu">
+          <span id="burger-bar-1" class="w-5 h-0.5 bg-current rounded-full transition-all duration-300 transform origin-center"></span>
+          <span id="burger-bar-2" class="w-5 h-0.5 bg-current rounded-full transition-all duration-300"></span>
+          <span id="burger-bar-3" class="w-5 h-0.5 bg-current rounded-full transition-all duration-300 transform origin-center"></span>
+        </button>
       </div>
 
-      <!-- Mobile Button -->
-      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-[#1A1A1A]" aria-label="Toggle Navigation">
-        <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
     </div>
 
-    <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-[#EAEAEA] px-6 py-4 space-y-3">
-      <a href="#about" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">About</a>
-      <a href="#work" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">Work</a>
-      <a href="#credentials" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">Credentials</a>
-      <button onclick="toggleMobileMenu(); toggleBlogView(true)" class="block text-left text-sm font-medium text-[#666666]">Blog</button>
-      <a href="#contact" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">Contact</a>
-      <div class="pt-2">
-        <a 
-          href="James_Ojubanire_CV.pdf" 
-          download="James_Ojubanire_CV.pdf"
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="block text-center py-2 text-xs font-semibold uppercase tracking-wider border border-[#1A1A1A] rounded-full"
-        >
-          Download CV
-        </a>
+    <!-- Mobile Slide-down Navigation Drawer -->
+    <div id="mobile-drawer" class="md:hidden hidden absolute top-[68px] left-0 w-full bg-white border-b border-border-default shadow-lg transition-all duration-300 z-50">
+      <div class="px-6 py-6 space-y-3">
+        <nav class="flex flex-col space-y-1 font-medium text-base text-text-secondary">
+          <a href="#projects" onclick="handleMobileNavClick('projects')" class="px-4 py-3 rounded-[12px] hover:text-[#5271FF] hover:bg-surface-secondary active:bg-surface-secondary transition">Works</a>
+          <a href="#blog" onclick="handleMobileBlogClick(event)" class="px-4 py-3 rounded-[12px] hover:text-[#5271FF] hover:bg-surface-secondary active:bg-surface-secondary transition">Blog</a>
+          <a href="#services" onclick="handleMobileNavClick('services')" class="px-4 py-3 rounded-[12px] hover:text-[#5271FF] hover:bg-surface-secondary active:bg-surface-secondary transition">Services</a>
+          <a href="#experience" onclick="handleMobileNavClick('experience')" class="px-4 py-3 rounded-[12px] hover:text-[#5271FF] hover:bg-surface-secondary active:bg-surface-secondary transition">About</a>
+          <a href="#contact" onclick="handleMobileNavClick('contact')" class="px-4 py-3 rounded-[12px] hover:text-[#5271FF] hover:bg-surface-secondary active:bg-surface-secondary transition">Contact</a>
+        </nav>
+
+        <div class="pt-4 border-t border-border-default flex flex-col gap-2.5">
+          <a href="https://www.linkedin.com/in/james-ojubanire-b91287166?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 rounded-[12px] bg-surface-secondary border border-border-default hover:border-[#5271FF] hover:text-[#5271FF] text-text-primary text-sm font-medium transition">
+            Connect on LinkedIn
+          </a>
+          <a 
+            href="James_Ojubanire_CV.pdf" 
+            download="James_Ojubanire_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full text-center py-3 rounded-[12px] bg-white border border-border-strong hover:border-[#5271FF] hover:text-[#5271FF] text-text-primary text-sm font-semibold transition flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4 text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span>Download Resume</span>
+          </a>
+          <a href="#contact" onclick="handleMobileNavClick('contact')" class="w-full text-center py-3 rounded-[12px] bg-primary hover:bg-[#5271FF] text-white text-sm font-semibold tracking-tight transition">
+            Let's Talk
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Main View -->
-  <main id="main-portfolio-view">
+  <!-- ================= VIEW 1: MAIN PORTFOLIO HOME SCREEN ================= -->
+  <div id="portfolio-view" class="w-full">
+    <main class="w-full space-y-16 sm:space-y-24 pt-6 sm:pt-12 pb-16">
 
-    <!-- Hero -->
-    <section class="pt-16 pb-20 md:pt-24 md:pb-32 border-b border-[#EAEAEA]">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+      <!-- ================= HERO SECTION (12-COL GRID) ================= -->
+      <section class="relative w-full px-6 sm:px-12 xl:px-[120px] overflow-hidden">
+        
+        <!-- Architectural Drafting SVG Vectors -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
+          <line x1="32" y1="20" x2="32" y2="240" stroke="#EAEAEA" stroke-width="1.5" />
+          <line x1="16" y1="48" x2="200" y2="48" stroke="#EAEAEA" stroke-width="1.5" />
+          <line x1="97%" y1="20" x2="97%" y2="700" stroke="#EAEAEA" stroke-width="1.5" />
+          <line x1="91%" y1="48" x2="99%" y2="48" stroke="#EAEAEA" stroke-width="1.5" />
+          <text x="88%" y="72" font-family="'Inter', monospace" font-size="14" font-weight="600" fill="#999999" letter-spacing="1">n2a</text>
+          <g transform="translate(64, 180) scale(0.85)" stroke="#D6D6D6" stroke-width="1.5" fill="none" stroke-linejoin="round">
+            <polygon points="20,0 42,32 18,52 0,22" />
+            <line x1="20" y1="0" x2="18" y2="52" stroke="#EAEAEA" stroke-width="1.2" />
+            <line x1="0" y1="22" x2="42" y2="32" stroke="#EAEAEA" stroke-width="1.2" />
+          </g>
+          <line x1="0" y1="100%" x2="100%" y2="100%" stroke="#EAEAEA" stroke-width="1.5" />
+        </svg>
+
+        <div class="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-[24px] items-end pb-0 border-b border-border-default">
           
-          <div class="md:col-span-7 space-y-6">
-            <span class="inline-block text-xs uppercase tracking-widest text-[#666666] font-semibold bg-[#F5F5F5] px-3 py-1 rounded-full border border-[#EAEAEA]">
-              Product & UI/UX Designer
-            </span>
-            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] text-[#1A1A1A]">
-              Designing structured, human-centered digital experiences.
-            </h1>
-            <p class="text-[#666666] text-base sm:text-lg leading-relaxed max-w-xl">
-              I’m James Oluwafemi Ojubanire, a designer focusing on mobile applications, responsive landing pages, and rigorous design systems that bridge visual craft and developer handoff.
-            </p>
-            <div class="flex flex-wrap gap-4 pt-2">
-              <a 
-                href="#work" 
-                class="px-6 py-3 bg-[#1A1A1A] text-white text-sm font-semibold rounded-full hover:bg-black transition-all"
-              >
-                View Selected Work
+          <!-- Left: Portrait Cutout (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col justify-end items-center lg:items-start z-10 order-2 lg:order-1 self-end">
+            <div class="relative w-[240px] sm:w-[320px] lg:w-[380px] xl:w-[410px] leading-none shrink-0 flex items-end justify-center bg-transparent border-none shadow-none m-0 p-0">
+              <img 
+                src="image 23.jpg" 
+                alt="James Oluwafemi Ojubanire" 
+                class="w-full h-auto max-h-[440px] sm:max-h-[520px] lg:max-h-[560px] object-contain object-bottom bg-transparent border-0 outline-none shadow-none block mb-0 align-bottom"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80';"
+              />
+            </div>
+          </div>
+
+          <!-- Right: Text & Typography Structure (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-6 sm:space-y-8 order-1 lg:order-2 pb-6 sm:pb-8">
+            
+            <div class="max-w-xl text-left border-l-2 border-border-strong pl-4 sm:pl-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-[12px] bg-surface-secondary border border-border-default text-text-secondary text-xs font-medium mb-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#5271FF]"></span>
+                Available for Full-time &amp; Contract Roles
+              </div>
+              <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-text-primary font-display">
+                James Ojubanire
+              </h1>
+              <p class="text-base sm:text-lg font-medium text-text-secondary mt-1">
+                Product Designer &amp; Visual Communicator
+              </p>
+              <p class="text-sm sm:text-base text-text-secondary leading-relaxed mt-4 font-normal">
+                Product Designer with 3+ years experience transforming complex user research into intuitive digital products, responsive web apps, and executive presentations.
+              </p>
+
+              <!-- Hero CTA buttons -->
+              <div class="flex flex-wrap items-center gap-3 sm:gap-3.5 mt-6">
+                <a href="#projects" class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-[12px] bg-primary hover:bg-[#5271FF] text-white text-xs sm:text-sm font-semibold tracking-tight transition flex items-center gap-2">
+                  <span>View Selected Works</span>
+                  <span>→</span>
+                </a>
+                <a 
+                  href="James_Ojubanire_CV.pdf" 
+                  download="James_Ojubanire_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-4 sm:px-5 py-2.5 sm:py-3 rounded-[12px] bg-white hover:bg-hover-bg hover:border-[#5271FF] hover:text-[#5271FF] border border-border-strong text-primary text-xs sm:text-sm font-semibold transition flex items-center gap-2"
+                >
+                  <svg class="w-4 h-4 text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  <span>Download Resume</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Bottom Typographic Lockup: "PORT / FOLIO" -->
+            <div class="text-right flex flex-col items-end select-none pr-0 sm:pr-2">
+              <div class="font-mono text-[11px] sm:text-xs md:text-sm text-text-muted font-medium tracking-wider leading-snug mb-1 text-right uppercase">
+                graphic // design
+              </div>
+              <div class="font-bold tracking-[-0.05em] text-primary leading-[0.88] text-[3.8rem] xs:text-[4.5rem] sm:text-[6.5rem] md:text-[8rem] lg:text-[9.5rem] font-display">
+                <div>PORT</div>
+                <div>FOLIO</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= SECTION 1: TWO-CARD HIGHLIGHT ================= -->
+      <section class="w-full px-6 sm:px-12 xl:px-[120px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-[24px]">
+          <div class="lg:col-span-6 bg-white rounded-card p-8 sm:p-10 flex flex-col justify-between shadow-subtle border border-border-default">
+            <div>
+              <span class="text-xs font-mono uppercase text-text-muted tracking-widest">// Core Focus</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-text-primary mt-2 leading-tight font-display">
+                Explore flexible UI systems & clean interfaces.
+              </h2>
+              <p class="text-text-secondary text-sm mt-4 leading-relaxed font-normal">
+                From talent recruitment portals and gig economy platforms to multi-tenant market intelligence, every component is engineered for conversion and handoff.
+              </p>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-border-default flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-surface-secondary border border-border-default flex items-center justify-center font-semibold text-xs text-text-primary">
+                  01
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-text-primary uppercase tracking-wider">Rapid Delivery</p>
+                  <p class="text-[11px] text-text-secondary font-medium">Figma to Live Production</p>
+                </div>
+              </div>
+              <a href="#projects" class="w-10 h-10 rounded-full bg-white border border-border-default hover:bg-[#5271FF] hover:border-[#5271FF] hover:text-white text-text-primary transition flex items-center justify-center" aria-label="Go to works">
+                <svg class="w-4 h-4 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
               </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 bg-white rounded-card p-8 sm:p-10 shadow-subtle border border-border-default flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-xs font-mono uppercase text-text-muted tracking-widest">// Precision Process</span>
+                <h3 class="text-2xl font-bold text-text-primary mt-1 font-display">Visionary Precision UI</h3>
+              </div>
+              <span class="px-3 py-1 rounded-[12px] bg-surface-secondary border border-border-default text-text-primary text-xs font-medium">3+ Years Exp</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-[24px] my-6">
+              <div class="p-4 rounded-card bg-surface-secondary border border-border-default flex flex-col justify-between">
+                <div class="w-8 h-8 rounded-lg bg-white border border-border-default flex items-center justify-center text-[#5271FF] mb-2">
+                  <svg class="w-4 h-4 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                </div>
+                <span class="text-xs font-semibold text-text-primary">Wireframing & Prototyping</span>
+                <span class="text-[11px] text-text-secondary mt-1">Figma Components & Auto Layout</span>
+              </div>
+              <div class="p-4 rounded-card bg-surface-secondary border border-border-default flex flex-col justify-between">
+                <div class="w-8 h-8 rounded-lg bg-white border border-border-default flex items-center justify-center text-[#5271FF] mb-2">
+                  <svg class="w-4 h-4 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <span class="text-xs font-semibold text-text-primary">User Research</span>
+                <span class="text-[11px] text-text-secondary mt-1">Usability Testing & Personas</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs font-medium text-text-secondary pt-2 border-t border-border-default">
+              <span>Tai Solarin University • Second Class Upper</span>
+              <span class="text-text-primary font-semibold">B.A. Applied Art</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION 2: WORKS WITH CATEGORY BREAKDOWNS ================= -->
+      <section id="projects" class="w-full px-6 sm:px-12 xl:px-[120px]">
+        
+        <div class="mb-8 pb-6 border-b border-border-default">
+          <div class="flex flex-col gap-3 max-w-full">
+            <p class="font-consolas uppercase text-[12px] leading-[16px] tracking-[1.2px] text-[#68707D] m-0">
+              // Portfolio Showcase
+            </p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-[48px] md:leading-[48px] text-black m-0 tracking-tight">
+              Selected <span class="text-[#5271FF] underline decoration-[#5271FF] underline-offset-4">Works</span> &amp; Case Studies.
+            </h2>
+            <p class="font-plus-jakarta font-medium text-[14px] sm:text-[15px] leading-[22px] text-[#68707D] m-0 pt-1 lg:whitespace-nowrap">
+              Explore design solutions categorized across UI interfaces, graphic identities, email systems, and executive slide presentations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-2 mb-10 pb-2 overflow-x-auto">
+          <button onclick="filterCategory('all')" id="tab-all" class="cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-semibold tracking-tight transition bg-[#5271FF] text-white border border-[#5271FF]">
+            <svg class="w-3.5 h-3.5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            <span>All Works</span>
+          </button>
+          <button onclick="filterCategory('ui')" id="tab-ui" class="cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            <svg class="w-3.5 h-3.5 stroke-[1.75] text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <span>UI Designs</span>
+          </button>
+          <button onclick="filterCategory('graphics')" id="tab-graphics" class="cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            <svg class="w-3.5 h-3.5 stroke-[1.75] text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4 5 5 0 012-4.14A9.97 9.97 0 0110 3a10 10 0 0110 10 9.97 9.97 0 01-2.86 7M7 21h10a4 4 0 004-4c0-1.5-.8-2.8-2-3.46M7 21a4 4 0 01-4-4c0-1.5.8-2.8 2-3.46"></path></svg>
+            <span>Graphic Designs</span>
+          </button>
+          <button onclick="filterCategory('email')" id="tab-email" class="cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            <svg class="w-3.5 h-3.5 stroke-[1.75] text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <span>Email Designs</span>
+          </button>
+          <button onclick="filterCategory('slides')" id="tab-slides" class="cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            <svg class="w-3.5 h-3.5 stroke-[1.75] text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+            <span>Slides &amp; Pitch Decks</span>
+          </button>
+        </div>
+
+        <!-- ================= 2A: UI DESIGNS SECTION ================= -->
+        <div id="section-ui" class="category-block mb-16">
+          <div class="flex items-center gap-2.5 mb-6 pb-2 border-b border-border-default">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#5271FF]"></span>
+            <h3 class="font-display font-bold text-[30px] leading-[36px] text-[#5271FF]">
+              UI &amp; Web Applications
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+
+            <!-- 1. ARENA TALENT -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 transition duration-200 border border-border-default shadow-subtle hover:border-[#5271FF] flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[11px] font-mono px-3 py-1 rounded-[12px] bg-surface-secondary text-text-primary font-medium border border-border-default">Talent Marketplace</span>
+                  <span class="text-xs font-semibold text-text-muted font-mono">01</span>
+                </div>
+                <h4 class="text-xl font-bold text-text-primary font-display">Arena Talent</h4>
+                <p class="text-xs text-text-muted mt-1 font-medium">Recruitment &amp; Talent Discovery Platform</p>
+                <p class="text-xs text-text-secondary mt-3 leading-relaxed font-normal">
+                  A streamlined talent marketplace interface designed to connect emerging African tech and creative professionals with vetted opportunities.
+                </p>
+                <div class="mt-4 p-3.5 rounded-card bg-surface-secondary border border-border-default text-[11px] text-text-secondary space-y-1">
+                  <p><strong class="text-text-primary">Challenge:</strong> Friction during talent application & portfolio submission.</p>
+                  <p><strong class="text-text-primary">UI Fix:</strong> Multi-step clean application flow & candidate evaluation cards.</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between">
+                <span class="text-xs font-medium text-text-muted">Live Web App</span>
+                <a href="https://arena-talent-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[12px] bg-primary text-white hover:bg-[#5271FF] text-xs font-semibold transition">
+                  <span>Visit Live</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 2. ERI -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 transition duration-200 border border-border-default shadow-subtle hover:border-[#5271FF] flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[11px] font-mono px-3 py-1 rounded-[12px] bg-surface-secondary text-text-primary font-medium border border-border-default">Intelligence & Data</span>
+                  <span class="text-xs font-semibold text-text-muted font-mono">02</span>
+                </div>
+                <h4 class="text-xl font-bold text-text-primary font-display">ERI</h4>
+                <p class="text-xs text-text-muted mt-1 font-medium">Formerly Malokun Labs Platform</p>
+                <p class="text-xs text-text-secondary mt-3 leading-relaxed font-normal">
+                  Ground-level intelligence & market research platform gathering verified consumer evidence across African consumer sectors.
+                </p>
+                <div class="mt-4 p-3.5 rounded-card bg-surface-secondary border border-border-default text-[11px] text-text-secondary space-y-1">
+                  <p><strong class="text-text-primary">Challenge:</strong> Dense field research datasets and telemetry.</p>
+                  <p><strong class="text-text-primary">UI Fix:</strong> Editorial grid hierarchy & clean interactive data tables.</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between">
+                <span class="text-xs font-medium text-text-muted">Research Portal</span>
+                <a href="https://www.useeri.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[12px] bg-primary text-white hover:bg-[#5271FF] text-xs font-semibold transition">
+                  <span>Visit Live</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. GETURGENT2K -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 transition duration-200 border border-border-default shadow-subtle hover:border-[#5271FF] flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[11px] font-mono px-3 py-1 rounded-[12px] bg-surface-secondary text-text-primary font-medium border border-border-default">Gig Economy</span>
+                  <span class="text-xs font-semibold text-text-muted font-mono">03</span>
+                </div>
+                <h4 class="text-xl font-bold text-text-primary font-display">GetUrgent2k</h4>
+                <p class="text-xs text-text-muted mt-1 font-medium">Main Micro-Task Gateway</p>
+                <p class="text-xs text-text-secondary mt-3 leading-relaxed font-normal">
+                  Nigeria's rapid micro-task platform connecting enterprise brands to verified everyday consumer crowds.
+                </p>
+                <div class="mt-4 p-3.5 rounded-card bg-surface-secondary border border-border-default text-[11px] text-text-secondary space-y-1">
+                  <p><strong class="text-text-primary">Challenge:</strong> Dual-sided marketplace onboarding friction.</p>
+                  <p><strong class="text-text-primary">UI Fix:</strong> Intuitive mobile-first claiming & instantaneous payout tracking.</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between">
+                <span class="text-xs font-medium text-text-muted">Task Gateway</span>
+                <a href="https://geturgent2k.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[12px] bg-primary text-white hover:bg-[#5271FF] text-xs font-semibold transition">
+                  <span>Visit Live</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 4. GETURGENT2K DAILY -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 transition duration-200 border border-border-default shadow-subtle hover:border-[#5271FF] flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[11px] font-mono px-3 py-1 rounded-[12px] bg-surface-secondary text-text-primary font-medium border border-border-default">Gamification</span>
+                  <span class="text-xs font-semibold text-text-muted font-mono">04</span>
+                </div>
+                <h4 class="text-xl font-bold text-text-primary font-display">GetUrgent2k Daily</h4>
+                <p class="text-xs text-text-muted mt-1 font-medium">Streak &amp; Survey Portal</p>
+                <p class="text-xs text-text-secondary mt-3 leading-relaxed font-normal">
+                  Daily engagement portal engineered with reward loops and interactive surveys to boost user retention.
+                </p>
+                <div class="mt-4 p-3.5 rounded-card bg-surface-secondary border border-border-default text-[11px] text-text-secondary space-y-1">
+                  <p><strong class="text-text-primary">Challenge:</strong> High bounce rates on repeatable daily micro-tasks.</p>
+                  <p><strong class="text-text-primary">UI Fix:</strong> Dynamic streak counters & high-contrast task validation states.</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between">
+                <span class="text-xs font-medium text-text-muted">Engagement App</span>
+                <a href="https://geturgent2kdaily.com/daily" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[12px] bg-primary text-white hover:bg-[#5271FF] text-xs font-semibold transition">
+                  <span>Visit Live</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 5. GETURGENT2K SHOP -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 transition duration-200 border border-border-default shadow-subtle hover:border-[#5271FF] flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[11px] font-mono px-3 py-1 rounded-[12px] bg-surface-secondary text-text-primary font-medium border border-border-default">E-Commerce</span>
+                  <span class="text-xs font-semibold text-text-muted font-mono">05</span>
+                </div>
+                <h4 class="text-xl font-bold text-text-primary font-display">GetUrgent2k Shop</h4>
+                <p class="text-xs text-text-muted mt-1 font-medium">Apparel &amp; Merch Storefront</p>
+                <p class="text-xs text-text-secondary mt-3 leading-relaxed font-normal">
+                  High-energy lifestyle and drop store designed for rapid conversions and low friction checkout.
+                </p>
+                <div class="mt-4 p-3.5 rounded-card bg-surface-secondary border border-border-default text-[11px] text-text-secondary space-y-1">
+                  <p><strong class="text-text-primary">Challenge:</strong> Mobile shopping cart drop-offs.</p>
+                  <p><strong class="text-text-primary">UI Fix:</strong> One-thumb cart drawers & sticky responsive checkout CTAs.</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between">
+                <span class="text-xs font-medium text-text-muted">Storefront</span>
+                <a href="https://geturgent2kshop.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[12px] bg-primary text-white hover:bg-[#5271FF] text-xs font-semibold transition">
+                  <span>Visit Live</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 6. SATINA WEB APP -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 transition duration-200 border border-border-default shadow-subtle hover:border-[#5271FF] flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[11px] font-mono px-3 py-1 rounded-[12px] bg-surface-secondary text-text-primary font-medium border border-border-default">Design System & App</span>
+                  <span class="text-xs font-semibold text-text-muted font-mono">06</span>
+                </div>
+                <h4 class="text-xl font-bold text-text-primary font-display">Satina Platform</h4>
+                <p class="text-xs text-text-muted mt-1 font-medium">Lovable Cloud Prototype & Component Suite</p>
+                <p class="text-xs text-text-secondary mt-3 leading-relaxed font-normal">
+                  An interactive web application crafted with fine micro-interactions, responsive states, and clean design tokens.
+                </p>
+                <div class="mt-4 p-3.5 rounded-card bg-surface-secondary border border-border-default text-[11px] text-text-secondary space-y-1">
+                  <p><strong class="text-text-primary">Challenge:</strong> Complex state transitions across viewport sizes.</p>
+                  <p><strong class="text-text-primary">UI Fix:</strong> Modular tokens, typography scale & auto-layout components.</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between">
+                <span class="text-xs font-medium text-text-muted">Interactive Demo</span>
+                <a href="https://preview--satina.lovable.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[12px] bg-primary text-white hover:bg-[#5271FF] text-xs font-semibold transition">
+                  <span>Open Prototype</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= 2B: GRAPHIC DESIGNS SECTION ================= -->
+        <div id="section-graphics" class="category-block mb-16">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-border-default">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#5271FF] shrink-0"></span>
+              <h3 class="font-display font-bold text-[30px] leading-[36px] text-[#5271FF] tracking-tight">Graphic Designs</h3>
+            </div>
+            <p class="text-xs font-medium text-[#68707D]">Applied Art &amp; Brand Collateral</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+
+            <!-- Card 1 -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                  <svg class="w-6 h-6 stroke-[1.75] text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4 5 5 0 012-4.14A9.97 9.97 0 0110 3a10 10 0 0110 10 9.97 9.97 0 01-2.86 7M7 21h10a4 4 0 004-4c0-1.5-.8-2.8-2-3.46M7 21a4 4 0 01-4-4c0-1.5.8-2.8 2-3.46" />
+                  </svg>
+                </div>
+                <h4 class="text-lg font-bold text-black leading-snug font-display">Comprehensive Brand Identity Systems</h4>
+                <p class="text-xs font-medium text-[#68707D] mt-1">Logomarks, Color Architecture &amp; Styleguides</p>
+                <p class="text-xs text-[#475569] mt-3 leading-relaxed font-normal">
+                  Crafting memorable corporate and consumer visual identities founded on classical art principles of balance, negative space, and emotional resonance.
+                </p>
+
+                <div class="flex flex-wrap gap-1.5 mt-4">
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Brand Book</span>
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Typography</span>
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Vector Marks</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between text-xs">
+                <span class="text-[#64748B] font-medium">Visual Identity</span>
+                <span class="text-primary font-semibold">Applied Arts Foundation</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                  <svg class="w-6 h-6 stroke-[1.75] text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h4 class="text-lg font-bold text-black leading-snug font-display">Editorial &amp; Print Collateral</h4>
+                <p class="text-xs font-medium text-[#68707D] mt-1">Annual Reports, Whitepapers &amp; Catalogues</p>
+                <p class="text-xs text-[#475569] mt-3 leading-relaxed font-normal">
+                  High-profile multi-page publication layouts featuring precise baseline grids, sophisticated editorial margins, and clean mathematical information hierarchy.
+                </p>
+
+                <div class="flex flex-wrap gap-1.5 mt-4">
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Editorial</span>
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Brochures</span>
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Print Ready</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between text-xs">
+                <span class="text-[#64748B] font-medium">Corporate Print</span>
+                <span class="text-primary font-semibold">Strict Hierarchy</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="lg:col-span-4 bg-white rounded-card p-6 border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                  <svg class="w-6 h-6 stroke-[1.75] text-[#5271FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                  </svg>
+                </div>
+                <h4 class="text-lg font-bold text-black leading-snug font-display">Campaign Graphics &amp; Marketing Assets</h4>
+                <p class="text-xs font-medium text-[#68707D] mt-1">Social Vectors, Banner Suites &amp; Billboards</p>
+                <p class="text-xs text-[#475569] mt-3 leading-relaxed font-normal">
+                  High-converting digital ad graphics, social media asset templates, and promotional event banners calibrated for brand recall and CTR performance.
+                </p>
+
+                <div class="flex flex-wrap gap-1.5 mt-4">
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Ad Creative</span>
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Social Assets</span>
+                  <span class="px-2.5 py-1 rounded-[6px] bg-surface-secondary border border-border-default text-[11px] font-medium text-[#334155]">Vector Art</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-border-default flex items-center justify-between text-xs">
+                <span class="text-[#64748B] font-medium">Marketing Assets</span>
+                <span class="text-primary font-semibold">High Conversion</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= 2C: EMAIL DESIGNS SECTION ================= -->
+        <div id="section-email" class="category-block mb-16">
+          <div class="flex items-center gap-2.5 mb-6 pb-2 border-b border-border-default">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#5271FF] shrink-0"></span>
+            <h3 class="font-display font-bold text-[30px] leading-[36px] text-[#5271FF] tracking-tight">E-mail Design</h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+
+            <div class="lg:col-span-4 p-6 rounded-card bg-white border border-border-default shadow-subtle hover:border-[#5271FF] transition flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-4">
+                  <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                </div>
+                <h4 class="font-semibold text-base text-text-primary font-display">E-Commerce Product Drop Email</h4>
+                <p class="text-xs text-text-secondary mt-2 leading-relaxed font-normal">
+                  Mobile-first weekly drop templates featuring single-column thumb-friendly CTA buttons, dynamic discount tags, and dark-mode tested CSS.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex justify-between text-[11px] font-mono text-text-muted">
+                <span>Clients: GetUrgent2k Shop</span>
+                <span class="text-text-primary font-medium">Figma to HTML</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 p-6 rounded-card bg-white border border-border-default shadow-subtle hover:border-[#5271FF] transition flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-4">
+                  <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h4 class="font-semibold text-base text-text-primary font-display">Onboarding & Gamified Lifecycle Drips</h4>
+                <p class="text-xs text-text-secondary mt-2 leading-relaxed font-normal">
+                  Retention email sequence rewarding streaks, displaying point progress bars, and walking users through their first 3 micro-task submissions.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex justify-between text-[11px] font-mono text-text-muted">
+                <span>Retention Lift: +24%</span>
+                <span class="text-text-primary font-medium">CRM Integration</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 p-6 rounded-card bg-white border border-border-default shadow-subtle hover:border-[#5271FF] transition flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-4">
+                  <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                </div>
+                <h4 class="font-semibold text-base text-text-primary font-display">Editorial Market Intelligence Digest</h4>
+                <p class="text-xs text-text-secondary mt-2 leading-relaxed font-normal">
+                  B2B research briefings delivering weekly macro trends, indices, and quote snippets structured for quick scanning on Apple Mail & Outlook.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex justify-between text-[11px] font-mono text-text-muted">
+                <span>Client: Malokun / ERI</span>
+                <span class="text-text-primary font-medium">B2B Editorial</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= 2D: GOOGLE SLIDES & PRESENTATION DESIGNS ================= -->
+        <div id="section-slides" class="category-block">
+          <div class="flex items-center gap-2.5 mb-6 pb-2 border-b border-border-default">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#5271FF] shrink-0"></span>
+            <h3 class="font-display font-bold text-[30px] leading-[36px] text-[#5271FF] tracking-tight">Slides &amp; Pitch Decks</h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+
+            <div class="lg:col-span-4 p-6 rounded-card bg-white border border-border-default shadow-subtle hover:border-[#5271FF] transition flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-4">
+                  <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h4 class="font-semibold text-base text-text-primary font-display">Venture Capital Investor Pitch Deck</h4>
+                <p class="text-xs text-text-secondary mt-2 leading-relaxed font-normal">
+                  15-slide investment narrative articulating problem statements, TAM/SAM sizing, unit economics, cohort retention, and roadmap milestones.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex justify-between text-[11px] font-mono text-text-muted">
+                <span>Deck Size: 15 Slides</span>
+                <span class="text-text-primary font-medium">Google Slides / Keynote</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 p-6 rounded-card bg-white border border-border-default shadow-subtle hover:border-[#5271FF] transition flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-4">
+                  <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                </div>
+                <h4 class="font-semibold text-base text-text-primary font-display">Boardroom Financial & Quarterly Review</h4>
+                <p class="text-xs text-text-secondary mt-2 leading-relaxed font-normal">
+                  Data visualization slides translating raw spreadsheets into intuitive waterfall charts, ARR progressions, and executive summaries.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex justify-between text-[11px] font-mono text-text-muted">
+                <span>Data Viz Focus</span>
+                <span class="text-text-primary font-medium">Figma &amp; Slides</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 p-6 rounded-card bg-white border border-border-default shadow-subtle hover:border-[#5271FF] transition flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-4">
+                  <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+                </div>
+                <h4 class="font-semibold text-base text-text-primary font-display">Master Template & Corporate Slide System</h4>
+                <p class="text-xs text-text-secondary mt-2 leading-relaxed font-normal">
+                  Reusable 40-layout master slide library with pre-set typography tokens, icon sets, team profiles, and testimonial cards for enterprise teams.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-border-default flex justify-between text-[11px] font-mono text-text-muted">
+                <span>40+ Master Layouts</span>
+                <span class="text-text-primary font-medium">Universal System</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================= SECTION 3: SKILLS & SERVICES ================= -->
+      <section id="services" class="w-full px-6 sm:px-12 xl:px-[120px]">
+        <div class="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-text-primary tracking-tight font-display">Skills &amp; Services</h2>
+          <p class="text-text-secondary text-base sm:text-lg font-normal mt-3">Comprehensive design services to bring your digital vision to life</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+          
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">UI/UX Design</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                User-centered design solutions that balance aesthetics with frictionless usability.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4 5 5 0 012-4.14A9.97 9.97 0 0110 3a10 10 0 0110 10 9.97 9.97 0 01-2.86 7M7 21h10a4 4 0 004-4c0-1.5-.8-2.8-2-3.46M7 21a4 4 0 01-4-4c0-1.5.8-2.8 2-3.46"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">Visual Identity</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                Cohesive brand systems and identity design that tell your story with resonance.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-4">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">Email Design</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                Responsive email templates engineered for engagement and high conversion rates.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">Web Design</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                Modern, responsive interfaces that behave seamlessly across desktop, tablet, and mobile.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">Mobile Design</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                Native and web app interfaces structured with ergonomic, thumb-friendly navigation.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">Design Systems</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                Scalable component libraries, auto-layout variants, and token structures for rapid engineering handoff.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">Prototyping</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                High-fidelity, interactive prototypes that bring logic to life and stress-test UX before coding.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 bg-white rounded-card p-6 flex flex-col justify-between border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF] mb-5">
+                <svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary font-display">User Research</h3>
+              <p class="text-text-secondary text-sm mt-2 leading-relaxed font-normal">
+                Data-driven qualitative and quantitative discoveries to inform product roadmaps.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECTION 4: EXPERIENCE & EDUCATION ================= -->
+      <section id="experience" class="w-full px-6 sm:px-12 xl:px-[120px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-[24px]">
+          
+          <div class="lg:col-span-7 bg-white rounded-card p-8 sm:p-12 shadow-subtle border border-border-default">
+            <span class="text-xs font-mono uppercase text-text-muted tracking-widest">// Work History</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text-primary mt-2 mb-8 font-display">Professional Timeline</h2>
+
+            <div class="space-y-8">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-surface-secondary border border-border-default text-text-primary flex items-center justify-center font-semibold text-xs shrink-0 font-mono">
+                  01
+                </div>
+                <div class="space-y-1 w-full">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <h4 class="font-bold text-base text-text-primary font-display">Design Associate</h4>
+                    <span class="text-xs font-mono px-2.5 py-0.5 rounded-[12px] bg-surface-secondary text-text-secondary border border-border-default font-medium">Jan 2025 – Present</span>
+                  </div>
+                  <p class="text-xs text-text-muted font-medium">Malokun Labs • Remote (Lagos)</p>
+                  <p class="text-xs text-text-secondary pt-1 leading-relaxed font-normal">
+                    Designed user interfaces for mobile and web applications using Figma; conducted user research and usability testing; collaborated closely with developers to ensure 100% design implementation fidelity.
+                  </p>
+                </div>
+              </div>
+
+              <div class="border-t border-border-default"></div>
+
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-surface-secondary border border-border-default text-text-primary flex items-center justify-center font-semibold text-xs shrink-0 font-mono">
+                  02
+                </div>
+                <div class="space-y-1 w-full">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <h4 class="font-semibold text-base text-text-primary font-display">Litigation Officer</h4>
+                    <span class="text-xs font-mono px-2.5 py-0.5 rounded-[12px] bg-surface-secondary text-text-secondary border border-border-default font-medium">2023 – Dec 2024</span>
+                  </div>
+                  <p class="text-xs text-text-muted font-medium">Segun Adebayor Law Firm • Ogun State</p>
+                  <p class="text-xs text-text-secondary pt-1 leading-relaxed font-normal">
+                    Structured legal briefs, filings, and complex client communications—instilling deep discipline in information architecture, microcopy, and detail accuracy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-white rounded-card p-8 sm:p-12 shadow-subtle border border-border-default flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono uppercase text-text-muted tracking-widest">// Academic &amp; Certs</span>
+              <h3 class="text-2xl font-bold text-text-primary mt-2 mb-6 font-display">Foundational Mastery</h3>
+
+              <!-- 1. Bachelor's Degree Card -> image 35.jpg -->
+              <div 
+                onclick="openCertModal('B.A. Fine & Applied Art', 'Tai Solarin University of Education (2022) • Second Class Upper (2:1)', 'image 35.jpg')"
+                class="p-5 rounded-card bg-surface-secondary border border-border-default mb-4 cursor-pointer hover:border-[#5271FF] hover:bg-hover-bg/80 transition duration-200 group"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-mono uppercase text-text-muted font-bold tracking-wider group-hover:text-[#5271FF] transition">Bachelor's Degree</span>
+                  <span class="text-[11px] font-medium text-text-muted group-hover:text-[#5271FF] flex items-center gap-1 transition">
+                    <span>View Certificate</span>
+                    <span>↗</span>
+                  </span>
+                </div>
+                <h4 class="font-semibold text-sm text-text-primary mt-1 font-display group-hover:text-[#5271FF] transition">B.A. Fine &amp; Applied Art</h4>
+                <p class="text-xs text-text-secondary">Tai Solarin University of Education (2022)</p>
+                <p class="text-xs font-medium text-text-secondary mt-1">Second Class Upper (2:1)</p>
+              </div>
+
+              <!-- Certificate Items List -->
+              <div class="space-y-2">
+                <!-- 2. Product Design -> image 37.jpg -->
+                <div 
+                  onclick="openCertModal('Product Design (UI & UX)', 'TS Academy (Certified April 01, 2026)', 'image 37.jpg')"
+                  class="flex items-center justify-between p-3.5 rounded-card bg-surface-secondary border border-border-default text-xs cursor-pointer hover:border-[#5271FF] hover:bg-hover-bg/80 transition duration-200 group"
+                >
+                  <span class="font-medium text-text-primary group-hover:text-[#5271FF] transition">Product Design (UI &amp; UX)</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-text-muted font-mono">TS Academy (2026)</span>
+                    <span class="text-[#5271FF] opacity-0 group-hover:opacity-100 transition">↗</span>
+                  </div>
+                </div>
+
+                <!-- 3. Web Dev & HTML -> image 38.jpg -->
+                <div 
+                  onclick="openCertModal('Web Dev & HTML Certification', 'Google Developers Launchpad • Programming Hub', 'image 38.jpg')"
+                  class="flex items-center justify-between p-3.5 rounded-card bg-surface-secondary border border-border-default text-xs cursor-pointer hover:border-[#5271FF] hover:bg-hover-bg/80 transition duration-200 group"
+                >
+                  <span class="font-medium text-text-primary group-hover:text-[#5271FF] transition">Web Dev &amp; HTML Certification</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-text-muted font-mono">Programming Hub</span>
+                    <span class="text-[#5271FF] opacity-0 group-hover:opacity-100 transition">↗</span>
+                  </div>
+                </div>
+
+                <!-- 4. Ethical Hacking -> image 39.jpg -->
+                <div 
+                  onclick="openCertModal('Ethical Hacking Course', 'Google Developers Launchpad • Programming Hub', 'image 39.jpg')"
+                  class="flex items-center justify-between p-3.5 rounded-card bg-surface-secondary border border-border-default text-xs cursor-pointer hover:border-[#5271FF] hover:bg-hover-bg/80 transition duration-200 group"
+                >
+                  <span class="font-medium text-text-primary group-hover:text-[#5271FF] transition">Ethical Hacking</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-text-muted font-mono">Programming Hub</span>
+                    <span class="text-[#5271FF] opacity-0 group-hover:opacity-100 transition">↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-border-default mt-6 flex items-center justify-between text-xs">
+              <span class="text-text-secondary">Have a CV copy handy?</span>
               <a 
                 href="James_Ojubanire_CV.pdf" 
                 download="James_Ojubanire_CV.pdf"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
-                class="px-6 py-3 bg-[#F5F5F5] text-[#1A1A1A] border border-[#EAEAEA] text-sm font-semibold rounded-full hover:border-[#1A1A1A] transition-all"
+                class="font-semibold text-[#5271FF] hover:text-[#3f5be0] hover:underline flex items-center gap-1.5 transition py-1 px-2 -mr-2 rounded-[8px] hover:bg-surface-secondary"
               >
-                Download Resume
+                <span>Download PDF</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION 5: LET'S WORK TOGETHER (CONTACT) ================= -->
+      <section id="contact" class="w-full px-6 sm:px-12 xl:px-[120px]">
+        <div>
+          <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+            <h2 class="text-3xl sm:text-4xl font-bold text-text-primary tracking-tight font-display">Let's Work Together</h2>
+            <p class="text-text-secondary text-base sm:text-lg font-normal mt-3 leading-relaxed">
+              Ready to bring your product design to life? Let's discuss your project and create something memorable.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-[24px] items-start">
+            
+            <!-- Left: Contact Details -->
+            <div class="lg:col-span-5 bg-white rounded-card p-8 border border-border-default shadow-subtle space-y-6">
+              <h3 class="text-xl font-bold text-text-primary font-display">Get in Touch</h3>
+
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-[#5271FF] stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-text-primary">Email</p>
+                  <a href="mailto:oliyfemi107@gmail.com" class="text-sm text-text-secondary hover:text-[#5271FF] font-normal transition">
+                    oliyfemi107@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-[12px] bg-surface-secondary border border-border-default flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-[#5271FF] stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-text-primary">Response Time</p>
+                  <p class="text-sm text-text-secondary font-normal">Usually within 24 hours</p>
+                </div>
+              </div>
+
+              <div class="pt-6 border-t border-border-default">
+                <p class="text-sm font-medium text-text-primary mb-3">Connect directly</p>
+                <div class="flex items-center gap-3">
+                  <a href="https://www.linkedin.com/in/james-ojubanire-b91287166?utm_source=share_via&utm_content=profile&utm_medium=member_ios" 
+                     target="_blank" rel="noopener noreferrer" 
+                     class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default hover:bg-[#5271FF] hover:border-[#5271FF] hover:text-white text-[#5271FF] flex items-center justify-center transition group"
+                     title="LinkedIn Profile">
+                    <svg class="w-4 h-4 currentColor transition" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c-.95 0-1.72-.77-1.72-1.72s.77-1.72 1.72-1.72 1.72.77 1.72 1.72-.77 1.72-1.72 1.72m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+                  </a>
+
+                  <a href="mailto:oliyfemi107@gmail.com" 
+                     class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default hover:bg-[#5271FF] hover:border-[#5271FF] hover:text-white text-[#5271FF] flex items-center justify-center transition group"
+                     title="Email James">
+                    <svg class="w-4 h-4 stroke-[1.75] currentColor transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                  </a>
+
+                  <a href="https://wa.me/2349043636301" 
+                     target="_blank" rel="noopener noreferrer" 
+                     class="w-10 h-10 rounded-[12px] bg-surface-secondary border border-border-default hover:bg-[#5271FF] hover:border-[#5271FF] hover:text-white text-[#5271FF] flex items-center justify-center transition group"
+                     title="Chat on WhatsApp">
+                    <svg class="w-4 h-4 stroke-[1.75] currentColor transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Send a Message Form -->
+            <div class="lg:col-span-7 bg-white rounded-card p-8 border border-border-default shadow-subtle">
+              <h3 class="text-xl font-bold text-text-primary mb-6 font-display">Send a Message</h3>
+
+              <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div>
+                  <label for="name" class="block text-xs font-medium text-text-secondary mb-1.5 uppercase tracking-wider font-mono">Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Your name" class="figma-input w-full px-4 py-3 text-sm" />
+                </div>
+
+                <div>
+                  <label for="email" class="block text-xs font-medium text-text-secondary mb-1.5 uppercase tracking-wider font-mono">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="your@email.com" class="figma-input w-full px-4 py-3 text-sm" />
+                </div>
+
+                <div>
+                  <label for="subject" class="block text-xs font-medium text-text-secondary mb-1.5 uppercase tracking-wider font-mono">Subject</label>
+                  <input type="text" id="subject" name="subject" required placeholder="Project inquiry" class="figma-input w-full px-4 py-3 text-sm" />
+                </div>
+
+                <div>
+                  <label for="message" class="block text-xs font-medium text-text-secondary mb-1.5 uppercase tracking-wider font-mono">Message</label>
+                  <textarea id="message" name="message" rows="4" required placeholder="Tell me about your project..." class="figma-input w-full px-4 py-3 text-sm resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 px-6 rounded-[12px] bg-primary hover:bg-[#5271FF] text-white font-medium text-sm transition flex items-center justify-center gap-2 group">
+                  <svg class="w-4 h-4 stroke-[1.75] text-[#5271FF] group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                  <span>Send Message (Email &amp; WhatsApp)</span>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================= MONOCHROME FOOTER ================= -->
+    <footer class="bg-dark-footer w-full text-footer-text py-12 sm:py-16 mt-16 border-t border-[#333333]">
+      <div class="w-full px-6 sm:px-12 xl:px-[120px]">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-[24px] pb-12">
+          
+          <div class="md:col-span-6 space-y-3">
+            <p class="text-white text-xl font-bold tracking-tight font-display">James Ojubanire</p>
+            <p class="text-footer-text text-sm sm:text-base leading-relaxed max-w-sm font-normal">
+              Product Designer &amp; Visual Communicator creating meaningful digital experiences.
+            </p>
+            <div class="pt-2 flex items-center gap-3">
+              <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-[12px] bg-white text-primary text-xs font-semibold hover:bg-[#5271FF] hover:text-white transition">
+                <span>Work With Me</span>
+                <span>→</span>
               </a>
             </div>
           </div>
 
-          <div class="md:col-span-5 flex justify-center">
-            <div class="relative w-full max-w-sm rounded-2xl overflow-hidden border border-[#EAEAEA] bg-[#F5F5F5] shadow-sm">
-              <img 
-                src="image 23.jpg" 
-                alt="James Ojubanire" 
-                class="w-full h-[460px] object-cover object-top"
-                onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'"
-              >
+          <div class="md:col-span-3 space-y-4">
+            <p class="text-white text-sm font-bold uppercase tracking-wider font-mono">Quick Links</p>
+            <div class="space-y-2.5 text-sm font-medium">
+              <div><a href="https://www.linkedin.com/in/james-ojubanire-b91287166?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="text-footer-text hover:text-[#5271FF] transition block">LinkedIn</a></div>
+              <div><a href="#projects" class="text-footer-text hover:text-[#5271FF] transition block">Works</a></div>
+              <div><a href="#blog" onclick="showBlogView(event)" class="text-footer-text hover:text-[#5271FF] transition block">Blog &amp; Articles</a></div>
+              <div><a href="#services" class="text-footer-text hover:text-[#5271FF] transition block">Services</a></div>
+              <div><a href="#contact" class="text-footer-text hover:text-[#5271FF] transition block">Contact</a></div>
             </div>
           </div>
 
+          <div class="md:col-span-3 space-y-4">
+            <p class="text-white text-sm font-bold uppercase tracking-wider font-mono">Services</p>
+            <div class="space-y-2.5 text-sm font-medium text-footer-text">
+              <p>UI/UX Design</p>
+              <p>Deck Design</p>
+              <p>Email Design</p>
+              <p>Design Systems</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-8 border-t border-footer-divider flex flex-col sm:flex-row items-center justify-between text-xs text-footer-text gap-4">
+          <p>© <span id="secret-admin-trigger" class="cursor-default select-none hover:text-[#5271FF]">2026</span> James Ojubanire. All rights reserved.</p>
+          <p class="text-footer-text/80 font-normal">Crafted with precision &amp; architectural discipline.</p>
         </div>
       </div>
-    </section>
+    </footer>
+  </div>
 
-    <!-- About Pillars -->
-    <section id="about" class="py-20 border-b border-[#EAEAEA] bg-[#F5F5F5]/40">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <div class="p-8 bg-white border border-[#EAEAEA] rounded-2xl">
-            <div class="w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center font-heading font-bold text-xs mb-6 border border-[#EAEAEA]">
-              01
-            </div>
-            <h3 class="font-heading font-bold text-lg text-[#1A1A1A] mb-2">Interface Architecture</h3>
-            <p class="text-sm text-[#666666] leading-relaxed">
-              Crafting mobile and desktop interfaces anchored in explicit typographic scales, systematic 8pt grids, and clear visual hierarchy.
-            </p>
-          </div>
-
-          <div class="p-8 bg-white border border-[#EAEAEA] rounded-2xl">
-            <div class="w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center font-heading font-bold text-xs mb-6 border border-[#EAEAEA]">
-              02
-            </div>
-            <h3 class="font-heading font-bold text-lg text-[#1A1A1A] mb-2">Design Systems</h3>
-            <p class="text-sm text-[#666666] leading-relaxed">
-              Building reusable token systems and component libraries in Figma that streamline designer-developer handoff and preserve consistency.
-            </p>
-          </div>
-
-          <div class="p-8 bg-white border border-[#EAEAEA] rounded-2xl">
-            <div class="w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center font-heading font-bold text-xs mb-6 border border-[#EAEAEA]">
-              03
-            </div>
-            <h3 class="font-heading font-bold text-lg text-[#1A1A1A] mb-2">User Validation</h3>
-            <p class="text-sm text-[#666666] leading-relaxed">
-              Grounding decisions in user flows, wireframes, and usability testing to solve real workflow pain points rather than superficial aesthetics.
-            </p>
-          </div>
-
-        </div>
+  <!-- ================= VIEW 2: DEDICATED FULL-PAGE BLOG SCREEN ================= -->
+  <div id="blog-view" class="w-full hidden min-h-screen bg-white">
+    
+    <div class="w-full border-b border-border-default bg-surface-secondary/40 py-6 px-6 sm:px-12 xl:px-[120px]">
+      <div class="flex items-center justify-between">
+        <button onclick="showPortfolioView()" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-text-primary hover:text-[#5271FF] transition group">
+          <span class="w-8 h-8 rounded-full bg-white border border-border-default flex items-center justify-center group-hover:border-[#5271FF] transition">
+            ←
+          </span>
+          <span>Back to Portfolio</span>
+        </button>
+        <span class="text-xs font-mono uppercase text-text-muted tracking-wider">// Journal &amp; Case Studies</span>
       </div>
-    </section>
+    </div>
 
-    <!-- Selected Work -->
-    <section id="work" class="py-24 border-b border-[#EAEAEA]">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div>
-            <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Portfolio</span>
-            <h2 class="font-heading text-3xl font-extrabold text-[#1A1A1A] mt-2">Selected Projects</h2>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          <article class="p-8 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl transition-all group flex flex-col justify-between">
-            <div>
-              <div class="flex justify-between items-center text-xs font-semibold text-[#999999] mb-4">
-                <span>MOBILE APP & E-COMMERCE</span>
-                <span>2026</span>
-              </div>
-              <h3 class="font-heading text-2xl font-bold text-[#1A1A1A] mb-3">GidaEats Food Platform</h3>
-              <p class="text-sm text-[#666666] leading-relaxed mb-6">
-                Mobile food logistics app designed for address ambiguity, offline sync, and frictionless checkout in local transit environments.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-8">
-                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Figma</span>
-                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">UX Research</span>
-                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Design System</span>
-              </div>
-            </div>
-            <a href="https://arena-talent-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider font-bold text-[#1A1A1A] hover:underline inline-flex items-center">
-              View Experience <span class="ml-1">↗</span>
-            </a>
-          </article>
-
-          <article class="p-8 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl transition-all group flex flex-col justify-between">
-            <div>
-              <div class="flex justify-between items-center text-xs font-semibold text-[#999999] mb-4">
-                <span>WEB APP & PRODUCTIVITY</span>
-                <span>2026</span>
-              </div>
-              <h3 class="font-heading text-2xl font-bold text-[#1A1A1A] mb-3">NomadNest Workspace Directory</h3>
-              <p class="text-sm text-[#666666] leading-relaxed mb-6">
-                Remote worker portal for locating work-ready cafes and verified high-speed Wi-Fi hubs across major nomad hubs.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-8">
-                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Web UI</span>
-                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Prototyping</span>
-                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Figma Tokens</span>
-              </div>
-            </div>
-            <a href="https://geturgent2k.com/" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider font-bold text-[#1A1A1A] hover:underline inline-flex items-center">
-              View Showcase <span class="ml-1">↗</span>
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Foundational Mastery (Credentials) -->
-    <section id="credentials" class="py-24 border-b border-[#EAEAEA] bg-[#F5F5F5]/30">
-      <div class="max-w-6xl mx-auto px-6">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div>
-            <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Academic & Training</span>
-            <h2 class="font-heading text-3xl font-extrabold text-[#1A1A1A] mt-2">Foundational Mastery</h2>
-          </div>
-          <div class="mt-4 md:mt-0">
-            <a 
-              href="James_Ojubanire_CV.pdf" 
-              download="James_Ojubanire_CV.pdf"
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] px-4 py-2 border border-[#1A1A1A] rounded-full hover:bg-[#1A1A1A] hover:text-white transition-all"
-            >
-              Download PDF →
-            </a>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <!-- Card 1 -->
-          <div 
-            onclick="openCertificateModal('B.A. Fine & Applied Arts', 'Tai Solarin University of Education', 'image 35.jpg')"
-            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
-          >
-            <div>
-              <div class="text-xs font-semibold text-[#999999] mb-3">2022</div>
-              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Bachelor's Degree</h4>
-              <p class="text-xs text-[#666666] mb-1">Tai Solarin University of Education</p>
-              <p class="text-xs text-[#999999]">Second Class Upper (2:1)</p>
-            </div>
-            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
-              View Certificate ↗
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div 
-            onclick="openCertificateModal('Product Design (UI & UX)', 'TS Academy', 'image 37.jpg')"
-            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
-          >
-            <div>
-              <div class="text-xs font-semibold text-[#999999] mb-3">2026</div>
-              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Product Design (UI & UX)</h4>
-              <p class="text-xs text-[#666666] mb-1">TS Academy</p>
-              <p class="text-xs text-[#999999]">Certified Professional Training</p>
-            </div>
-            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
-              View Certificate ↗
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div 
-            onclick="openCertificateModal('Web Dev & HTML Certification', 'Programming Hub', 'image 38.jpg')"
-            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
-          >
-            <div>
-              <div class="text-xs font-semibold text-[#999999] mb-3">2023 - 2024</div>
-              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Web Dev & HTML</h4>
-              <p class="text-xs text-[#666666] mb-1">Google Programming Hub</p>
-              <p class="text-xs text-[#999999]">Core Web Architecture</p>
-            </div>
-            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
-              View Certificate ↗
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div 
-            onclick="openCertificateModal('Ethical Hacking Course', 'Programming Hub', 'image 39.jpg')"
-            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
-          >
-            <div>
-              <div class="text-xs font-semibold text-[#999999] mb-3">2023 - 2024</div>
-              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Ethical Hacking</h4>
-              <p class="text-xs text-[#666666] mb-1">Google Programming Hub</p>
-              <p class="text-xs text-[#999999]">Advanced Security Track</p>
-            </div>
-            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
-              View Certificate ↗
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-24">
-      <div class="max-w-3xl mx-auto px-6 text-center">
-        <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Inquiries</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#1A1A1A] mt-2 mb-4">Start a Conversation</h2>
-        <p class="text-sm text-[#666666] max-w-lg mx-auto mb-8">
-          Available for remote product design, landing page architecture, and design system contracts.
-        </p>
-
-        <form onsubmit="handleContactSubmit(event)" class="space-y-4 max-w-md mx-auto text-left">
-          <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-1">Your Name</label>
-            <input type="text" id="contact-name" required placeholder="Name" class="w-full px-4 py-3 bg-[#F5F5F5] border border-[#EAEAEA] rounded-xl text-sm focus:outline-none focus:border-[#1A1A1A]">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-1">Your Message</label>
-            <textarea id="contact-message" required rows="3" placeholder="Tell me about your project..." class="w-full px-4 py-3 bg-[#F5F5F5] border border-[#EAEAEA] rounded-xl text-sm focus:outline-none focus:border-[#1A1A1A]"></textarea>
-          </div>
-          <button type="submit" class="w-full py-3.5 bg-[#1A1A1A] hover:bg-black text-white text-xs uppercase tracking-wider font-bold rounded-xl transition-all">
-            Send Message (WhatsApp & Email)
-          </button>
-        </form>
-
-        <div class="mt-8 flex justify-center space-x-6 text-xs text-[#999999]">
-          <a href="https://linkedin.com/in/james-ojubanire-b91287166" target="_blank" rel="noopener noreferrer" class="hover:text-[#1A1A1A]">LinkedIn</a>
-          <span>•</span>
-          <a href="mailto:oliyfemi107@gmail.com" class="hover:text-[#1A1A1A]">oliyfemi107@gmail.com</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Decoupled Blog View -->
-  <section id="blog-view" class="hidden min-h-screen py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="w-full px-6 sm:px-12 xl:px-[120px] py-12 sm:py-16">
       
-      <button onclick="toggleBlogView(false)" class="text-xs uppercase tracking-wider font-semibold text-[#666666] hover:text-[#1A1A1A] mb-12 inline-flex items-center">
-        ← Back to Portfolio
+      <div class="mb-12 pb-8 border-b border-border-default">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#5271FF]"></span>
+            <p class="font-consolas uppercase text-[12px] leading-[16px] tracking-[1.2px] text-[#68707D] m-0">
+              // Writing, Analyses &amp; Case Studies
+            </p>
+          </div>
+          <h1 class="font-display font-bold text-4xl sm:text-5xl md:text-[56px] md:leading-[60px] text-black tracking-tight">
+            Design <span class="text-[#5271FF] underline decoration-[#5271FF] underline-offset-4">Insights</span> &amp; Publications.
+          </h1>
+          <p class="font-plus-jakarta font-medium text-[15px] sm:text-[16px] leading-[26px] text-[#68707D] mt-4">
+            Curated research breakdowns on user psychology, identity systems, design tokens, and technical presentation architecture.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 mt-8 overflow-x-auto">
+          <button onclick="filterBlogCategory('all')" id="blog-tab-all" class="blog-cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-semibold tracking-tight transition bg-[#5271FF] text-white border border-[#5271FF]">
+            All Articles (<span id="count-all">0</span>)
+          </button>
+          <button onclick="filterBlogCategory('ui')" id="blog-tab-ui" class="blog-cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            UI Designs
+          </button>
+          <button onclick="filterBlogCategory('graphics')" id="blog-tab-graphics" class="blog-cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            Graphic Designs
+          </button>
+          <button onclick="filterBlogCategory('email')" id="blog-tab-email" class="blog-cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            E-mail Design
+          </button>
+          <button onclick="filterBlogCategory('slides')" id="blog-tab-slides" class="blog-cat-tab inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-xs font-medium tracking-tight transition bg-white text-text-secondary border border-border-default hover:bg-hover-bg">
+            Slides &amp; Pitch Decks
+          </button>
+        </div>
+      </div>
+
+      <!-- Feed Container: Injects empty state or published articles -->
+      <div id="blog-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+        <!-- Dynamic Blog Posts Injected Here via JavaScript -->
+      </div>
+
+      <div class="mt-20 pt-10 border-t border-border-default flex flex-col sm:flex-row items-center justify-between text-xs text-text-muted gap-4">
+        <p>© 2026 James Ojubanire • Articles &amp; Design Breakdown Collection</p>
+        <button onclick="showPortfolioView()" class="font-semibold text-text-primary hover:text-[#5271FF] transition">
+          Return to Main Portfolio →
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= FULL ARTICLE READING MODAL ================= -->
+  <div id="article-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-card max-w-3xl w-full p-6 sm:p-10 relative shadow-subtle max-h-[92vh] overflow-y-auto border border-border-default">
+      
+      <button onclick="closeArticleModal()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-surface-secondary hover:bg-hover-bg flex items-center justify-center text-text-primary transition" aria-label="Close article">
+        ✕
       </button>
 
-      <div class="border-b border-[#EAEAEA] pb-8 mb-12">
-        <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Writing</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#1A1A1A] mt-1">Design Notes & Articles</h2>
-        <p class="text-sm text-[#666666] mt-2">Field reflections on product design, user heuristics, and design tokens.</p>
+      <div class="flex flex-wrap items-center gap-3 text-xs">
+        <span id="article-modal-category" class="font-mono uppercase px-3 py-1 rounded-[12px] bg-surface-secondary text-text-primary font-medium border border-border-default">UI Designs</span>
+        <span id="article-modal-date" class="text-text-muted">October 24, 2026</span>
+        <span class="text-text-muted">•</span>
+        <span id="article-modal-readtime" class="text-text-muted">5 min read</span>
       </div>
 
-      <!-- Feed Container (Defaults to Empty State) -->
-      <div id="blog-posts-container" class="space-y-6"></div>
+      <h2 id="article-modal-heading" class="text-2xl sm:text-4xl font-bold text-text-primary mt-4 tracking-tight leading-tight font-display">
+        Article Heading Goes Here
+      </h2>
 
-    </div>
-  </section>
+      <p id="article-modal-subheading" class="text-text-secondary text-base mt-2 font-normal leading-relaxed">
+        Article subheading summary.
+      </p>
 
-  <!-- Certificate Modal -->
-  <div id="cert-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white border border-[#EAEAEA] rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative">
-      <div class="flex items-center justify-between pb-4 border-b border-[#EAEAEA]">
-        <div>
-          <h3 id="modal-cert-title" class="font-heading font-bold text-base text-[#1A1A1A]">Certificate</h3>
-          <p id="modal-cert-sub" class="text-xs text-[#666666]">Issuer</p>
-        </div>
-        <button onclick="closeCertificateModal()" class="text-[#666666] hover:text-black text-2xl font-bold leading-none">&times;</button>
+      <div class="w-full h-64 sm:h-80 rounded-card overflow-hidden my-6 bg-surface-secondary border border-border-default">
+        <img id="article-modal-image" src="" alt="" class="w-full h-full object-cover" />
       </div>
 
-      <div class="mt-4 rounded-xl overflow-hidden bg-[#F5F5F5] flex items-center justify-center max-h-[70vh]">
-        <img id="modal-cert-img" src="" alt="Certificate" class="w-full h-auto object-contain max-h-[65vh]">
+      <div id="article-modal-content" class="text-text-secondary text-sm sm:text-base leading-relaxed space-y-4 whitespace-pre-line font-normal">
+        <!-- Content text -->
       </div>
 
-      <div class="mt-4 flex justify-end">
-        <button onclick="closeCertificateModal()" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg hover:border-[#1A1A1A]">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Article Reader Modal -->
-  <div id="article-reader-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white border border-[#EAEAEA] rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 sm:p-8 relative shadow-2xl overflow-hidden">
-      <div class="flex items-center justify-between pb-4 border-b border-[#EAEAEA]">
-        <span id="reader-category" class="text-xs font-bold uppercase tracking-wider text-[#666666]">Article</span>
-        <button onclick="closeArticleReader()" class="text-[#666666] hover:text-black text-2xl font-bold leading-none">&times;</button>
-      </div>
-
-      <div class="overflow-y-auto py-6 space-y-4 pr-1">
-        <h2 id="reader-title" class="font-heading text-2xl font-extrabold text-[#1A1A1A]"></h2>
-        <div id="reader-meta" class="text-xs text-[#999999]"></div>
-        <img id="reader-img" src="" alt="" class="w-full rounded-xl object-cover max-h-80 hidden">
-        <div id="reader-body" class="text-sm text-[#666666] leading-relaxed whitespace-pre-line"></div>
-      </div>
-
-      <div class="pt-4 border-t border-[#EAEAEA] flex justify-between items-center">
-        <a id="reader-live-btn" href="#" target="_blank" rel="noopener noreferrer" class="hidden text-xs font-bold uppercase tracking-wider text-[#1A1A1A] hover:underline">
-          Visit Project ↗
+      <div class="mt-8 pt-6 border-t border-border-default flex items-center justify-between">
+        <a id="article-modal-external-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden items-center gap-1.5 px-4 py-2.5 rounded-[12px] bg-[#5271FF] text-white text-xs font-semibold hover:bg-blue-600 transition">
+          <span>Visit Live Work</span>
+          <span>↗</span>
         </a>
-        <button onclick="closeArticleReader()" class="ml-auto px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg hover:border-[#1A1A1A]">
-          Done
+        <button onclick="closeArticleModal()" class="px-5 py-2.5 rounded-[12px] bg-surface-secondary hover:bg-hover-bg text-text-primary text-xs font-medium transition">
+          Close Article
         </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Admin Modal (Zero Hints, 204620 Passcode) -->
-  <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white border border-[#EAEAEA] rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
-      <div class="flex items-center justify-between pb-4 border-b border-[#EAEAEA] mb-6">
-        <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-[#1A1A1A]">Access</h3>
-        <button onclick="closeAdminStudio()" class="text-[#666666] hover:text-black text-2xl font-bold leading-none">&times;</button>
-      </div>
-
-      <!-- Auth Prompt -->
-      <div id="admin-auth-view" class="space-y-4">
-        <input type="password" id="admin-passcode" placeholder="••••••••" class="w-full px-4 py-3 bg-[#F5F5F5] border border-[#EAEAEA] rounded-xl text-sm focus:outline-none focus:border-[#1A1A1A]">
-        <button onclick="authenticateAdmin()" class="w-full py-3 bg-[#1A1A1A] hover:bg-black text-white text-xs uppercase tracking-wider font-bold rounded-xl transition-all">
-          Authorize
-        </button>
-      </div>
-
-      <!-- Post Form -->
-      <div id="admin-form-view" class="hidden space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-[#666666] mb-1">Title</label>
-          <input type="text" id="post-title" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-semibold text-[#666666] mb-1">Category</label>
-            <input type="text" id="post-category" placeholder="UI/UX" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-[#666666] mb-1">Read Time</label>
-            <input type="text" id="post-readtime" placeholder="3 min read" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-[#666666] mb-1">Link (Optional)</label>
-          <input type="url" id="post-link" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-[#666666] mb-1">Cover Image (Optional)</label>
-          <input type="file" id="post-image" accept="image/*" class="w-full text-xs text-[#666666]">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-[#666666] mb-1">Content</label>
-          <textarea id="post-body" rows="4" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]"></textarea>
-        </div>
-        <div class="flex space-x-2 pt-2">
-          <button onclick="publishArticle()" class="flex-1 py-2.5 bg-[#1A1A1A] hover:bg-black text-white text-xs uppercase tracking-wider font-bold rounded-lg">
-            Publish
-          </button>
-          <button onclick="resetAllPosts()" class="px-4 py-2.5 bg-red-50 text-red-600 text-xs font-bold rounded-lg">
-            Clear
-          </button>
-        </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-[#EAEAEA] py-12 bg-white">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#999999]">
-      <div>
-        © <span id="secret-admin-trigger" class="cursor-pointer select-none">2026</span> James Ojubanire.
-      </div>
-      <div class="flex space-x-6 mt-4 sm:mt-0">
-        <a href="#about" class="hover:text-[#1A1A1A]">About</a>
-        <a href="#work" class="hover:text-[#1A1A1A]">Work</a>
-        <button onclick="toggleBlogView(true)" class="hover:text-[#1A1A1A]">Blog</button>
-        <a href="#contact" class="hover:text-[#1A1A1A]">Contact</a>
-      </div>
-    </div>
-  </footer>
+  <!-- ================= CERTIFICATE & DEGREE PREVIEW MODAL ================= -->
+  <div id="cert-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-card max-w-2xl w-full p-6 sm:p-8 relative shadow-subtle max-h-[92vh] overflow-y-auto border border-border-default">
+      
+      <!-- Close Button -->
+      <button onclick="closeCertModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-surface-secondary hover:bg-hover-bg hover:text-[#5271FF] flex items-center justify-center text-text-primary transition font-bold" aria-label="Close certificate preview">
+        ✕
+      </button>
 
-  <!-- Scripts -->
+      <!-- Modal Header -->
+      <div class="pr-10 mb-4">
+        <span class="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-[6px] bg-surface-secondary text-text-secondary font-semibold border border-border-default">Credential Verification</span>
+        <h3 id="cert-modal-title" class="text-xl sm:text-2xl font-bold text-text-primary mt-2 font-display">Certificate Title</h3>
+        <p id="cert-modal-subtitle" class="text-xs sm:text-sm text-text-muted mt-1 font-medium">Institution &amp; details</p>
+      </div>
+
+      <!-- Certificate Image Container -->
+      <div class="w-full rounded-card overflow-hidden bg-surface-secondary border border-border-default my-4 flex items-center justify-center min-h-[300px]">
+        <img 
+          id="cert-modal-img" 
+          src="" 
+          alt="Certificate Preview" 
+          class="w-full h-auto max-h-[70vh] object-contain mx-auto" 
+          onerror="handleCertImgError(this)" 
+        />
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-4 border-t border-border-default flex items-center justify-between text-xs">
+        <span class="text-text-muted">Verified credential document</span>
+        <button onclick="closeCertModal()" class="px-5 py-2.5 rounded-[12px] bg-primary hover:bg-[#5271FF] text-white font-medium transition">
+          Close Preview
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= PRIVATE ADMIN BLOG LOGIN & PUBLISHING MODAL ================= -->
+  <div id="admin-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-card max-w-2xl w-full p-6 sm:p-8 relative shadow-subtle max-h-[92vh] overflow-y-auto border border-border-default">
+      
+      <button onclick="closeAdminModal()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-surface-secondary hover:bg-hover-bg flex items-center justify-center text-text-primary transition" aria-label="Close admin">
+        ✕
+      </button>
+
+      <!-- ADMIN LOGIN SCREEN (NO HINTS, PASSCODE: 204620) -->
+      <div id="admin-login-view" class="space-y-5">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-full bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-text-primary font-display">Authentication</h3>
+            <p class="text-xs text-text-muted">Enter security credentials to unlock publishing access.</p>
+          </div>
+        </div>
+
+        <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4 pt-2">
+          <div>
+            <label for="admin-pass" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Passcode</label>
+            <input type="password" id="admin-pass" required placeholder="••••••••" class="figma-input w-full px-4 py-3 text-sm" />
+          </div>
+
+          <div id="admin-login-error" class="hidden p-3 rounded-[8px] bg-red-50 border border-red-200 text-red-600 text-xs">
+            Access denied.
+          </div>
+
+          <button type="submit" class="w-full py-3.5 px-6 rounded-[12px] bg-primary hover:bg-[#5271FF] text-white font-medium text-sm transition flex items-center justify-center gap-2">
+            <span>Unlock Publishing Studio</span>
+            <span>→</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- ADMIN PUBLISHING STUDIO -->
+      <div id="admin-publish-view" class="hidden space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-border-default">
+          <div>
+            <span class="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-[8px] bg-green-50 text-green-700 font-semibold border border-green-200">Authenticated</span>
+            <h3 class="text-2xl font-bold text-text-primary mt-1 font-display">Publish New Blog Post</h3>
+            <p class="text-xs text-text-muted">Fill out your design case study fields below to post live.</p>
+          </div>
+          <button onclick="handleAdminLogout()" class="text-xs text-red-600 hover:underline font-medium">Log out</button>
+        </div>
+
+        <form id="blog-publish-form" onsubmit="handlePublishPost(event)" class="space-y-4">
+          
+          <div>
+            <label for="post-category" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Category *</label>
+            <select id="post-category" required class="figma-input w-full px-4 py-3 text-sm bg-white">
+              <option value="ui">UI Designs</option>
+              <option value="graphics">Graphic Designs</option>
+              <option value="email">E-mail Design</option>
+              <option value="slides">Slides &amp; Pitch Decks</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="post-heading" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Article Heading *</label>
+            <input type="text" id="post-heading" required placeholder="e.g. Architecting Scalable Design Systems" class="figma-input w-full px-4 py-3 text-sm" />
+          </div>
+
+          <div>
+            <label for="post-subheading" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Sub Heading *</label>
+            <input type="text" id="post-subheading" required placeholder="e.g. How modular tokens bridge the Figma-to-code gap." class="figma-input w-full px-4 py-3 text-sm" />
+          </div>
+
+          <div>
+            <label for="post-link" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Project / External Link (Optional)</label>
+            <input type="url" id="post-link" placeholder="e.g. https://www.useeri.com" class="figma-input w-full px-4 py-3 text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Featured Image Visual *</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <input type="url" id="post-image-url" placeholder="Paste image URL (https://...)" class="figma-input w-full px-4 py-2.5 text-xs" />
+              </div>
+              <div>
+                <label class="w-full flex items-center justify-center px-4 py-2.5 rounded-[12px] bg-surface-secondary border border-border-default hover:bg-hover-bg text-text-secondary text-xs font-medium cursor-pointer transition">
+                  <span id="file-label">Or upload local image</span>
+                  <input type="file" id="post-image-file" accept="image/*" class="hidden" onchange="handleImageFileUpload(event)" />
+                </label>
+              </div>
+            </div>
+            <div id="image-preview-container" class="hidden mt-3 w-full h-36 rounded-card overflow-hidden bg-surface-secondary border border-border-default">
+              <img id="image-preview" src="" alt="Preview" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="post-readtime" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Read Time</label>
+              <input type="text" id="post-readtime" value="4 min read" class="figma-input w-full px-4 py-2.5 text-xs" />
+            </div>
+            <div>
+              <label for="post-date" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Publish Date</label>
+              <input type="text" id="post-date" value="Today, 2026" class="figma-input w-full px-4 py-2.5 text-xs" />
+            </div>
+          </div>
+
+          <div>
+            <label for="post-body" class="block text-xs font-medium text-text-secondary uppercase tracking-wider mb-1.5 font-mono">Full Blog Article &amp; Narrative *</label>
+            <textarea id="post-body" rows="6" required placeholder="Write the full case study or publication here..." class="figma-input w-full px-4 py-3 text-sm resize-none"></textarea>
+          </div>
+
+          <div class="pt-2 flex items-center gap-3">
+            <button type="submit" class="flex-1 py-3 px-6 rounded-[12px] bg-[#5271FF] hover:bg-blue-600 text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>Publish Article Now</span>
+            </button>
+            <button type="button" onclick="closeAdminModal()" class="px-5 py-3 rounded-[12px] bg-surface-secondary text-text-secondary hover:bg-hover-bg text-sm font-medium transition">
+              Cancel
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Scripts -->
   <script>
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const hamburger = document.getElementById('hamburger-icon');
-      const close = document.getElementById('close-icon');
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) {
-        menu.classList.add('hidden');
-        hamburger.classList.remove('hidden');
-        close.classList.add('hidden');
-      } else {
-        menu.classList.remove('hidden');
-        hamburger.classList.add('hidden');
-        close.classList.remove('hidden');
-      }
-    }
-
-    function handleContactSubmit(e) {
-      e.preventDefault();
-      const name = encodeURIComponent(document.getElementById('contact-name').value.trim());
-      const message = encodeURIComponent(document.getElementById('contact-message').value.trim());
-      const phone = "2349043636302";
-      const email = "oliyfemi107@gmail.com";
-      window.open(`https://wa.me/${phone}?text=Hello%20James,%20my%20name%20is%20${name}.%20${message}`, '_blank');
-      window.location.href = `mailto:${email}?subject=Inquiry%20from%20${name}&body=${message}`;
-    }
-
-    function openCertificateModal(title, issuer, imageSrc) {
-      document.getElementById('modal-cert-title').innerText = title;
-      document.getElementById('modal-cert-sub').innerText = issuer;
-      const imgElem = document.getElementById('modal-cert-img');
-      imgElem.src = imageSrc;
-      imgElem.onerror = function() {
-        this.onerror = null;
-        this.src = imageSrc.replace('.jpg', '.png');
-      };
-      document.getElementById('cert-modal').classList.remove('hidden');
-    }
-
-    function closeCertificateModal() {
-      document.getElementById('cert-modal').classList.add('hidden');
-    }
-
-    function toggleBlogView(showBlog) {
-      const mainView = document.getElementById('main-portfolio-view');
-      const blogView = document.getElementById('blog-view');
-      if (showBlog) {
-        mainView.classList.add('hidden');
-        blogView.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        renderBlogPosts();
-      } else {
-        blogView.classList.add('hidden');
-        mainView.classList.remove('hidden');
-      }
-    }
-
-    const STORAGE_KEY = 'james_portfolio_blog_posts_v1';
-
-    function getStoredPosts() {
-      const raw = localStorage.getItem(STORAGE_KEY);
+    // BLOG DATA STORE (Defaults to empty state, saved in LocalStorage)
+    const BLOG_STORAGE_KEY = 'james_blog_posts_store_v2';
+    
+    function loadPersistedPosts() {
+      const raw = localStorage.getItem(BLOG_STORAGE_KEY);
       if (!raw) return [];
       try {
         return JSON.parse(raw);
@@ -582,162 +1409,449 @@
       }
     }
 
+    let blogPosts = loadPersistedPosts();
+    let activeBlogFilter = 'all';
+    let isAdminAuthenticated = false;
+    let pendingUploadedImageData = "";
+
+    // PORTFOLIO CATEGORY FILTERING LOGIC
+    function filterCategory(cat) {
+      const tabs = document.querySelectorAll('.cat-tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-[#5271FF]', 'text-white', 'border-[#5271FF]', 'font-semibold');
+        tab.classList.add('bg-white', 'text-text-secondary', 'border-border-default', 'font-medium');
+      });
+
+      const activeTab = document.getElementById('tab-' + cat);
+      if (activeTab) {
+        activeTab.classList.remove('bg-white', 'text-text-secondary', 'border-border-default', 'font-medium');
+        activeTab.classList.add('bg-[#5271FF]', 'text-white', 'border-[#5271FF]', 'font-semibold');
+      }
+
+      const sections = ['ui', 'graphics', 'email', 'slides'];
+      sections.forEach(s => {
+        const el = document.getElementById('section-' + s);
+        if (!el) return;
+        if (cat === 'all' || cat === s) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+    }
+
+    // CONTACT FORM SUBMISSION (DUAL ACTION: EMAIL + WHATSAPP)
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const waText = encodeURIComponent(
+        `Hello James,\n\nMy name is ${name} (${email}).\n\nSubject: ${subject}\n\nMessage:\n${message}`
+      );
+      const waUrl = `https://wa.me/2349043636301?text=${waText}`;
+      const mailtoUrl = `mailto:oliyfemi107@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + name + " <" + email + ">\n\n" + message)}`;
+
+      window.open(waUrl, '_blank');
+      window.location.href = mailtoUrl;
+    }
+
+    // BLOG RENDERING (WITH CLEAN EMPTY STATE)
     function renderBlogPosts() {
       const container = document.getElementById('blog-posts-container');
-      const posts = getStoredPosts();
+      if (!container) return;
 
-      if (posts.length === 0) {
+      const filtered = activeBlogFilter === 'all' 
+        ? blogPosts 
+        : blogPosts.filter(p => p.category === activeBlogFilter);
+
+      const countEl = document.getElementById('count-all');
+      if (countEl) countEl.textContent = blogPosts.length;
+
+      if (filtered.length === 0) {
         container.innerHTML = `
-          <div class="py-16 text-center border border-dashed border-[#EAEAEA] rounded-2xl p-8 bg-[#F5F5F5]/30">
-            <h3 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">No publications yet</h3>
-            <p class="text-xs text-[#666666] max-w-sm mx-auto">
-              New field notes, case study breakdowns, and design writings will appear here soon.
+          <div class="col-span-12 py-20 px-8 text-center bg-white rounded-card border border-dashed border-border-default">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-surface-secondary border border-border-default flex items-center justify-center text-[#5271FF]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-text-primary mb-1">No publications yet</h3>
+            <p class="text-text-muted text-xs sm:text-sm max-w-sm mx-auto">
+              Curated case studies, design token breakdowns, and system insights will appear here soon.
             </p>
           </div>
         `;
         return;
       }
 
-      container.innerHTML = posts.map((post, index) => `
-        <article class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl transition-all">
-          <div class="flex items-center justify-between text-xs text-[#999999] mb-2">
-            <span class="font-semibold text-[#1A1A1A] uppercase">${post.category || 'Article'}</span>
-            <span>${post.date || 'Recent'} • ${post.readTime || '3 min read'}</span>
+      container.innerHTML = filtered.map(post => `
+        <article class="lg:col-span-4 bg-white rounded-card border border-border-default shadow-subtle hover:border-[#5271FF] transition duration-200 overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="relative w-full h-48 bg-surface-secondary overflow-hidden border-b border-border-default cursor-pointer" onclick="openArticleModal('${post.id}')">
+              <img 
+                src="${post.image}" 
+                alt="${post.heading}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';"
+              />
+              <span class="absolute top-3 left-3 text-[10px] font-mono uppercase px-2.5 py-1 rounded-[6px] bg-white/95 text-text-primary font-semibold backdrop-blur-sm border border-border-default shadow-sm">
+                ${post.categoryName}
+              </span>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-center justify-between text-[11px] text-text-muted mb-2 font-mono">
+                <span>${post.date}</span>
+                <span>${post.readTime}</span>
+              </div>
+
+              <h3 onclick="openArticleModal('${post.id}')" class="text-lg font-bold text-text-primary group-hover:text-[#5271FF] transition cursor-pointer leading-snug font-display">
+                ${post.heading}
+              </h3>
+
+              <p class="text-xs text-text-secondary mt-2 leading-relaxed line-clamp-2 font-normal">
+                ${post.subheading}
+              </p>
+            </div>
           </div>
-          <h3 class="font-heading text-xl font-bold text-[#1A1A1A] mb-2">${post.title}</h3>
-          <p class="text-[#666666] text-xs leading-relaxed mb-4 line-clamp-3">${post.content}</p>
-          <div class="flex items-center justify-between pt-3 border-t border-[#EAEAEA] text-xs">
-            <button onclick="readArticle(${index})" class="font-semibold text-[#1A1A1A] hover:underline">
-              Read Story →
-            </button>
-            ${post.link ? `<a href="${post.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#1A1A1A] hover:underline">Link ↗</a>` : ''}
+
+          <div class="px-6 py-4 border-t border-border-default bg-white flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <button onclick="openArticleModal('${post.id}')" class="font-semibold text-text-primary hover:text-[#5271FF] transition flex items-center gap-1.5">
+                <span>Read Article</span>
+                <span>→</span>
+              </button>
+              ${post.link ? `
+                <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="font-medium text-[#5271FF] hover:underline flex items-center gap-1">
+                  <span>Live Link</span>
+                  <span>↗</span>
+                </a>
+              ` : ''}
+            </div>
+
+            ${isAdminAuthenticated ? `
+              <button onclick="deletePost('${post.id}')" class="text-[11px] text-red-500 hover:text-red-700 font-medium">
+                Delete
+              </button>
+            ` : ''}
           </div>
         </article>
       `).join('');
     }
 
-    function readArticle(index) {
-      const posts = getStoredPosts();
-      const post = posts[index];
+    function filterBlogCategory(category) {
+      activeBlogFilter = category;
+      const tabs = document.querySelectorAll('.blog-cat-tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-[#5271FF]', 'text-white', 'border-[#5271FF]', 'font-semibold');
+        tab.classList.add('bg-white', 'text-text-secondary', 'border-border-default', 'font-medium');
+      });
+
+      const activeTab = document.getElementById(`blog-tab-${category}`);
+      if (activeTab) {
+        activeTab.classList.remove('bg-white', 'text-text-secondary', 'border-border-default', 'font-medium');
+        activeTab.classList.add('bg-[#5271FF]', 'text-white', 'border-[#5271FF]', 'font-semibold');
+      }
+
+      renderBlogPosts();
+    }
+
+    function openArticleModal(id) {
+      const post = blogPosts.find(p => p.id === id);
       if (!post) return;
-      document.getElementById('reader-title').innerText = post.title;
-      document.getElementById('reader-category').innerText = post.category || 'Article';
-      document.getElementById('reader-meta').innerText = `${post.date || 'Recent'} • ${post.readTime || '3 min read'}`;
-      document.getElementById('reader-body').innerText = post.content;
-      const imgElem = document.getElementById('reader-img');
-      if (post.image) {
-        imgElem.src = post.image;
-        imgElem.classList.remove('hidden');
+
+      document.getElementById('article-modal-category').textContent = post.categoryName;
+      document.getElementById('article-modal-date').textContent = post.date;
+      document.getElementById('article-modal-readtime').textContent = post.readTime;
+      document.getElementById('article-modal-heading').textContent = post.heading;
+      document.getElementById('article-modal-subheading').textContent = post.subheading;
+      document.getElementById('article-modal-image').src = post.image;
+      document.getElementById('article-modal-content').textContent = post.content;
+
+      const linkBtn = document.getElementById('article-modal-external-link');
+      if (post.link && post.link.trim() !== '') {
+        linkBtn.href = post.link;
+        linkBtn.classList.remove('hidden');
+        linkBtn.classList.add('inline-flex');
       } else {
-        imgElem.classList.add('hidden');
+        linkBtn.classList.add('hidden');
+        linkBtn.classList.remove('inline-flex');
       }
-      const liveBtn = document.getElementById('reader-live-btn');
-      if (post.link) {
-        liveBtn.href = post.link;
-        liveBtn.classList.remove('hidden');
+
+      const modal = document.getElementById('article-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeArticleModal() {
+      const modal = document.getElementById('article-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    // CERTIFICATE PREVIEW MODAL
+    function openCertModal(title, subtitle, imageSrc) {
+      document.getElementById('cert-modal-title').textContent = title;
+      document.getElementById('cert-modal-subtitle').textContent = subtitle;
+      const img = document.getElementById('cert-modal-img');
+      img.dataset.original = imageSrc;
+      img.src = imageSrc;
+
+      const modal = document.getElementById('cert-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCertModal() {
+      const modal = document.getElementById('cert-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    function handleCertImgError(img) {
+      const current = img.src;
+      if (current.endsWith('.jpg')) {
+        img.src = current.replace('.jpg', '.png');
+      } else if (current.endsWith('.png')) {
+        img.src = current.replace('.png', '.jpeg');
       } else {
-        liveBtn.classList.add('hidden');
+        img.src = 'https://placehold.co/900x650/F5F5F5/1A1A1A?text=Certificate+Preview';
       }
-      document.getElementById('article-reader-modal').classList.remove('hidden');
     }
 
-    function closeArticleReader() {
-      document.getElementById('article-reader-modal').classList.add('hidden');
-    }
+    // ADMIN AUTHENTICATION (CODE: 204620, ZERO HINTS)
+    function openAdminModal() {
+      const modal = document.getElementById('admin-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
 
-    window.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-        e.preventDefault();
-        openAdminStudio();
+      if (isAdminAuthenticated) {
+        document.getElementById('admin-login-view').classList.add('hidden');
+        document.getElementById('admin-publish-view').classList.remove('hidden');
+      } else {
+        document.getElementById('admin-login-view').classList.remove('hidden');
+        document.getElementById('admin-publish-view').classList.add('hidden');
       }
-    });
-
-    let clickCount = 0;
-    document.getElementById('secret-admin-trigger').addEventListener('click', () => {
-      clickCount++;
-      if (clickCount >= 3) {
-        clickCount = 0;
-        openAdminStudio();
-      }
-    });
-
-    function openAdminStudio() {
-      document.getElementById('admin-modal').classList.remove('hidden');
     }
 
-    function closeAdminStudio() {
-      document.getElementById('admin-modal').classList.add('hidden');
+    function closeAdminModal() {
+      const modal = document.getElementById('admin-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
     }
 
-    function authenticateAdmin() {
-      const pass = document.getElementById('admin-passcode').value;
+    function handleAdminLogin(event) {
+      event.preventDefault();
+      const pass = document.getElementById('admin-pass').value.trim();
+      const errEl = document.getElementById('admin-login-error');
+
       if (pass === '204620') {
-        document.getElementById('admin-auth-view').classList.add('hidden');
-        document.getElementById('admin-form-view').classList.remove('hidden');
+        isAdminAuthenticated = true;
+        errEl.classList.add('hidden');
+        document.getElementById('admin-pass').value = '';
+        document.getElementById('admin-login-view').classList.add('hidden');
+        document.getElementById('admin-publish-view').classList.remove('hidden');
+        renderBlogPosts();
       } else {
-        alert('Access denied.');
+        errEl.classList.remove('hidden');
       }
     }
 
-    function publishArticle() {
-      const title = document.getElementById('post-title').value.trim();
-      const category = document.getElementById('post-category').value.trim() || 'UI/UX';
-      const readTime = document.getElementById('post-readtime').value.trim() || '3 min read';
+    function handleAdminLogout() {
+      isAdminAuthenticated = false;
+      document.getElementById('admin-publish-view').classList.add('hidden');
+      document.getElementById('admin-login-view').classList.remove('hidden');
+      renderBlogPosts();
+    }
+
+    function handleImageFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        pendingUploadedImageData = evt.target.result;
+        document.getElementById('file-label').textContent = file.name.substring(0, 16) + '...';
+        const preview = document.getElementById('image-preview');
+        const previewContainer = document.getElementById('image-preview-container');
+        preview.src = pendingUploadedImageData;
+        previewContainer.classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handlePublishPost(event) {
+      event.preventDefault();
+
+      const category = document.getElementById('post-category').value;
+      const heading = document.getElementById('post-heading').value.trim();
+      const subheading = document.getElementById('post-subheading').value.trim();
       const link = document.getElementById('post-link').value.trim();
       const content = document.getElementById('post-body').value.trim();
-      const imageInput = document.getElementById('post-image');
+      const readTime = document.getElementById('post-readtime').value.trim() || '4 min read';
+      const date = document.getElementById('post-date').value.trim() || 'Today, 2026';
+      
+      const imageUrlInput = document.getElementById('post-image-url').value.trim();
+      const finalImage = pendingUploadedImageData || imageUrlInput || 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80';
 
-      if (!title || !content) {
-        alert('Please fill out the title and content.');
-        return;
-      }
-
-      const savePostData = (imgData) => {
-        const posts = getStoredPosts();
-        const newPost = {
-          title,
-          category,
-          readTime,
-          link,
-          content,
-          image: imgData || '',
-          date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-        };
-        posts.unshift(newPost);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-        alert('Article published.');
-        document.getElementById('post-title').value = '';
-        document.getElementById('post-category').value = '';
-        document.getElementById('post-readtime').value = '';
-        document.getElementById('post-link').value = '';
-        document.getElementById('post-body').value = '';
-        imageInput.value = '';
-        closeAdminStudio();
-        renderBlogPosts();
+      const catNames = {
+        ui: 'UI Designs',
+        graphics: 'Graphic Designs',
+        email: 'E-mail Design',
+        slides: 'Slides & Pitch Decks'
       };
 
-      if (imageInput.files && imageInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = (e) => savePostData(e.target.result);
-        reader.readAsDataURL(imageInput.files[0]);
-      } else {
-        savePostData('');
+      const newPost = {
+        id: 'post-' + Date.now(),
+        category: category,
+        categoryName: catNames[category] || 'Design',
+        heading: heading,
+        subheading: subheading,
+        link: link,
+        date: date,
+        readTime: readTime,
+        image: finalImage,
+        content: content
+      };
+
+      blogPosts.unshift(newPost);
+      localStorage.setItem(BLOG_STORAGE_KEY, JSON.stringify(blogPosts));
+      renderBlogPosts();
+
+      document.getElementById('blog-publish-form').reset();
+      pendingUploadedImageData = "";
+      document.getElementById('file-label').textContent = 'Or upload local image';
+      document.getElementById('image-preview-container').classList.add('hidden');
+
+      closeAdminModal();
+    }
+
+    function deletePost(id) {
+      blogPosts = blogPosts.filter(p => p.id !== id);
+      localStorage.setItem(BLOG_STORAGE_KEY, JSON.stringify(blogPosts));
+      renderBlogPosts();
+    }
+
+    window.addEventListener('click', function(e) {
+      const artModal = document.getElementById('article-modal');
+      const admModal = document.getElementById('admin-modal');
+      const certModal = document.getElementById('cert-modal');
+      if (e.target === artModal) closeArticleModal();
+      if (e.target === admModal) closeAdminModal();
+      if (e.target === certModal) closeCertModal();
+    });
+
+    // FULL SCREEN TOGGLE (PORTFOLIO <-> BLOG)
+    function showBlogView(event) {
+      if (event) event.preventDefault();
+      document.getElementById('portfolio-view').classList.add('hidden');
+      const blogView = document.getElementById('blog-view');
+      blogView.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.location.hash = 'blog';
+      renderBlogPosts();
+    }
+
+    function showPortfolioView() {
+      document.getElementById('blog-view').classList.add('hidden');
+      document.getElementById('portfolio-view').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.location.hash === '#blog') {
+        history.replaceState(null, null, ' ');
       }
     }
 
-    function resetAllPosts() {
-      if (confirm('Clear all articles?')) {
-        localStorage.removeItem(STORAGE_KEY);
-        closeAdminStudio();
+    // MOBILE HAMBURGER MENU
+    let isMobileMenuOpen = false;
+
+    function toggleMobileMenu() {
+      isMobileMenuOpen = !isMobileMenuOpen;
+      const drawer = document.getElementById('mobile-drawer');
+      const bar1 = document.getElementById('burger-bar-1');
+      const bar2 = document.getElementById('burger-bar-2');
+      const bar3 = document.getElementById('burger-bar-3');
+
+      if (isMobileMenuOpen) {
+        drawer.classList.remove('hidden');
+        bar1.classList.add('rotate-45', 'translate-y-2');
+        bar2.classList.add('opacity-0');
+        bar3.classList.add('-rotate-45', '-translate-y-2');
+      } else {
+        drawer.classList.add('hidden');
+        bar1.classList.remove('rotate-45', 'translate-y-2');
+        bar2.classList.remove('opacity-0');
+        bar3.classList.remove('-rotate-45', '-translate-y-2');
+      }
+    }
+
+    function closeMobileMenu() {
+      if (!isMobileMenuOpen) return;
+      isMobileMenuOpen = false;
+      const drawer = document.getElementById('mobile-drawer');
+      const bar1 = document.getElementById('burger-bar-1');
+      const bar2 = document.getElementById('burger-bar-2');
+      const bar3 = document.getElementById('burger-bar-3');
+
+      if (drawer) drawer.classList.add('hidden');
+      if (bar1) bar1.classList.remove('rotate-45', 'translate-y-2');
+      if (bar2) bar2.classList.remove('opacity-0');
+      if (bar3) bar3.classList.remove('-rotate-45', '-translate-y-2');
+    }
+
+    function handleMobileNavClick(targetId) {
+      closeMobileMenu();
+      showPortfolioView();
+      const el = document.getElementById(targetId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleMobileBlogClick(event) {
+      closeMobileMenu();
+      showBlogView(event);
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && isMobileMenuOpen) closeMobileMenu();
+    });
+
+    window.addEventListener('load', () => {
+      if (window.location.hash === '#blog') {
+        showBlogView();
+      } else {
         renderBlogPosts();
       }
-    }
+    });
 
-    window.onclick = function(event) {
-      if (event.target === document.getElementById('cert-modal')) closeCertificateModal();
-      if (event.target === document.getElementById('article-reader-modal')) closeArticleReader();
-      if (event.target === document.getElementById('admin-modal')) closeAdminStudio();
-    };
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#blog') {
+        showBlogView();
+      } else if (window.location.hash === '' || window.location.hash === '#projects') {
+        showPortfolioView();
+      }
+    });
+
+    // SECRET ADMIN TRIGGER: Shortcut Ctrl/Cmd + Shift + A
+    window.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        openAdminModal();
+      }
+    });
+
+    // SECRET ADMIN TRIGGER: Triple click year '2026' in footer
+    let secretClickCount = 0;
+    const triggerEl = document.getElementById('secret-admin-trigger');
+    if (triggerEl) {
+      triggerEl.addEventListener('click', function() {
+        secretClickCount++;
+        if (secretClickCount >= 3) {
+          secretClickCount = 0;
+          openAdminModal();
+        }
+        setTimeout(() => { secretClickCount = 0; }, 1500);
+      });
+    }
   </script>
 </body>
 </html>
