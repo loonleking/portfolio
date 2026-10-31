@@ -1,75 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>James Ojubanire | Product Designer & UI/UX Specialist</title>
+  <title>James Ojubanire — Product & UI/UX Designer</title>
   
-  <!-- Fonts -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS Engine -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            brand: '#5271FF',
-            'brand-hover': '#3b5bdb',
-            dark: '#121212',
-            surface: '#18181b',
-            'surface-light': '#27272a',
-            'border-subtle': '#27272a',
-            'border-light': '#3f3f46',
-            'text-primary': '#f4f4f5',
-            'text-secondary': '#a1a1aa',
-            'text-muted': '#71717a'
-          },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
-            display: ['Space Grotesk', 'sans-serif']
+            heading: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            bg: '#FFFFFF',
+            surface: '#F5F5F5',
+            'surface-dark': '#1A1A1A',
+            border: '#EAEAEA',
+            'border-dark': '#2E2E2E',
+            textPrimary: '#1A1A1A',
+            textSecondary: '#666666',
+            textMuted: '#999999',
           }
         }
       }
     }
   </script>
-  
-  <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #121212;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #27272a;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #3f3f46;
-    }
-  </style>
 </head>
-<body class="bg-dark text-text-primary font-sans antialiased selection:bg-brand selection:text-white">
+<body class="bg-[#FFFFFF] text-[#1A1A1A] font-sans antialiased selection:bg-[#1A1A1A] selection:text-[#FFFFFF]">
 
-  <!-- ================= NAVIGATION ================= -->
-  <header class="sticky top-0 z-40 bg-dark/90 backdrop-blur-md border-b border-border-subtle">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="font-display text-xl font-bold tracking-tight hover:text-brand transition-colors">
-        JAMES OJUBANIRE<span class="text-brand">.</span>
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#EAEAEA]">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="font-heading font-extrabold text-xl tracking-tight text-[#1A1A1A]">
+        JAMES OJUBANIRE
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-text-secondary">
-        <a href="#about" class="hover:text-brand transition-colors">About</a>
-        <a href="#work" class="hover:text-brand transition-colors">Selected Work</a>
-        <a href="#credentials" class="hover:text-brand transition-colors">Credentials</a>
-        <button onclick="toggleBlogView(true)" class="hover:text-brand transition-colors">Blog / Insights</button>
-        <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#666666]">
+        <a href="#about" class="hover:text-[#1A1A1A] transition-colors">About</a>
+        <a href="#work" class="hover:text-[#1A1A1A] transition-colors">Work</a>
+        <a href="#credentials" class="hover:text-[#1A1A1A] transition-colors">Credentials</a>
+        <button onclick="toggleBlogView(true)" class="hover:text-[#1A1A1A] transition-colors">Blog</button>
+        <a href="#contact" class="hover:text-[#1A1A1A] transition-colors">Contact</a>
       </nav>
 
       <div class="hidden md:flex items-center space-x-4">
@@ -78,25 +59,14 @@
           download="James_Ojubanire_CV.pdf"
           target="_blank" 
           rel="noopener noreferrer"
-          class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-surface border border-border-light rounded-lg hover:border-brand hover:text-brand transition-all"
+          class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] border border-[#1A1A1A] rounded-full hover:bg-[#1A1A1A] hover:text-white transition-all"
         >
           Download CV
         </a>
-        <a 
-          href="#contact"
-          class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-brand rounded-lg hover:bg-brand-hover transition-all"
-        >
-          Let's Talk
-        </a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button 
-        id="mobile-menu-btn" 
-        onclick="toggleMobileMenu()" 
-        class="md:hidden p-2 text-text-secondary hover:text-white focus:outline-none"
-        aria-label="Toggle Menu"
-      >
+      <!-- Mobile Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-[#1A1A1A]" aria-label="Toggle Navigation">
         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -106,86 +76,72 @@
       </button>
     </div>
 
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-surface border-b border-border-subtle px-4 pt-3 pb-6 space-y-3">
-      <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-text-secondary hover:text-brand">About</a>
-      <a href="#work" onclick="toggleMobileMenu()" class="block py-2 text-text-secondary hover:text-brand">Selected Work</a>
-      <a href="#credentials" onclick="toggleMobileMenu()" class="block py-2 text-text-secondary hover:text-brand">Credentials</a>
-      <button onclick="toggleMobileMenu(); toggleBlogView(true)" class="block w-full text-left py-2 text-text-secondary hover:text-brand">Blog / Insights</button>
-      <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-text-secondary hover:text-brand">Contact</a>
-      <div class="pt-3 border-t border-border-subtle flex flex-col gap-2">
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-[#EAEAEA] px-6 py-4 space-y-3">
+      <a href="#about" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">About</a>
+      <a href="#work" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">Work</a>
+      <a href="#credentials" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">Credentials</a>
+      <button onclick="toggleMobileMenu(); toggleBlogView(true)" class="block text-left text-sm font-medium text-[#666666]">Blog</button>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block text-sm font-medium text-[#666666]">Contact</a>
+      <div class="pt-2">
         <a 
           href="James_Ojubanire_CV.pdf" 
           download="James_Ojubanire_CV.pdf"
           target="_blank" 
           rel="noopener noreferrer"
-          class="text-center py-2 text-sm font-semibold border border-border-light rounded-lg text-text-primary hover:border-brand"
+          class="block text-center py-2 text-xs font-semibold uppercase tracking-wider border border-[#1A1A1A] rounded-full"
         >
           Download CV
-        </a>
-        <a 
-          href="#contact" 
-          onclick="toggleMobileMenu()"
-          class="text-center py-2 text-sm font-semibold bg-brand text-white rounded-lg hover:bg-brand-hover"
-        >
-          Let's Talk
         </a>
       </div>
     </div>
   </header>
 
-  <!-- ================= MAIN PORTFOLIO VIEW ================= -->
+  <!-- Main View -->
   <main id="main-portfolio-view">
 
-    <!-- Hero Section -->
-    <section class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- Hero -->
+    <section class="pt-16 pb-20 md:pt-24 md:pb-32 border-b border-[#EAEAEA]">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border-light rounded-full text-xs font-semibold text-text-secondary">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Available for Remote Roles Worldwide</span>
-            </div>
-            
-            <h1 class="font-display text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-              Crafting intuitive digital experiences that solve <span class="text-brand">real problems</span>.
+          <div class="md:col-span-7 space-y-6">
+            <span class="inline-block text-xs uppercase tracking-widest text-[#666666] font-semibold bg-[#F5F5F5] px-3 py-1 rounded-full border border-[#EAEAEA]">
+              Product & UI/UX Designer
+            </span>
+            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] text-[#1A1A1A]">
+              Designing structured, human-centered digital experiences.
             </h1>
-
-            <p class="text-text-secondary text-lg sm:text-xl max-w-2xl leading-relaxed">
-              I’m James Oluwafemi Ojubanire, a Product Designer with 3 years of experience in UI/UX, user research, wireframing, and scalable design systems.
+            <p class="text-[#666666] text-base sm:text-lg leading-relaxed max-w-xl">
+              I’m James Oluwafemi Ojubanire, a designer focusing on mobile applications, responsive landing pages, and rigorous design systems that bridge visual craft and developer handoff.
             </p>
-
-            <div class="flex flex-wrap items-center gap-4 pt-4">
+            <div class="flex flex-wrap gap-4 pt-2">
               <a 
                 href="#work" 
-                class="px-6 py-3.5 bg-brand hover:bg-brand-hover text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand/20"
+                class="px-6 py-3 bg-[#1A1A1A] text-white text-sm font-semibold rounded-full hover:bg-black transition-all"
               >
-                Explore Projects
+                View Selected Work
               </a>
               <a 
                 href="James_Ojubanire_CV.pdf" 
                 download="James_Ojubanire_CV.pdf"
-                target="_blank"
+                target="_blank" 
                 rel="noopener noreferrer"
-                class="px-6 py-3.5 bg-surface hover:border-brand border border-border-light text-text-primary font-semibold rounded-xl transition-all"
+                class="px-6 py-3 bg-[#F5F5F5] text-[#1A1A1A] border border-[#EAEAEA] text-sm font-semibold rounded-full hover:border-[#1A1A1A] transition-all"
               >
                 Download Resume
               </a>
             </div>
           </div>
 
-          <div class="lg:col-span-5 flex justify-center">
-            <div class="relative w-full max-w-md">
-              <div class="absolute -inset-1.5 bg-gradient-to-r from-brand to-cyan-500 rounded-3xl blur opacity-20"></div>
-              <div class="relative bg-surface border border-border-subtle rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="image 23.jpg" 
-                  alt="James Oluwafemi Ojubanire" 
-                  class="w-full h-[460px] object-cover object-top"
-                  onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'"
-                >
-              </div>
+          <div class="md:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-sm rounded-2xl overflow-hidden border border-[#EAEAEA] bg-[#F5F5F5] shadow-sm">
+              <img 
+                src="image 23.jpg" 
+                alt="James Ojubanire" 
+                class="w-full h-[460px] object-cover object-top"
+                onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'"
+              >
             </div>
           </div>
 
@@ -193,44 +149,38 @@
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-surface/50 border-t border-b border-border-subtle">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- About Pillars -->
+    <section id="about" class="py-20 border-b border-[#EAEAEA] bg-[#F5F5F5]/40">
+      <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          <div class="p-6 bg-surface border border-border-subtle rounded-2xl">
-            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brand/10 text-brand mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
+          <div class="p-8 bg-white border border-[#EAEAEA] rounded-2xl">
+            <div class="w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center font-heading font-bold text-xs mb-6 border border-[#EAEAEA]">
+              01
             </div>
-            <h3 class="font-display text-xl font-bold mb-2">Product & UI/UX</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              End-to-end mobile and web interface design focusing on simplicity, conversion heuristics, and accessible interaction patterns.
+            <h3 class="font-heading font-bold text-lg text-[#1A1A1A] mb-2">Interface Architecture</h3>
+            <p class="text-sm text-[#666666] leading-relaxed">
+              Crafting mobile and desktop interfaces anchored in explicit typographic scales, systematic 8pt grids, and clear visual hierarchy.
             </p>
           </div>
 
-          <div class="p-6 bg-surface border border-border-subtle rounded-2xl">
-            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brand/10 text-brand mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-              </svg>
+          <div class="p-8 bg-white border border-[#EAEAEA] rounded-2xl">
+            <div class="w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center font-heading font-bold text-xs mb-6 border border-[#EAEAEA]">
+              02
             </div>
-            <h3 class="font-display text-xl font-bold mb-2">Design Systems</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Component libraries built on Figma tokens, strict grids, and scalable typography hierarchies for developer parity.
+            <h3 class="font-heading font-bold text-lg text-[#1A1A1A] mb-2">Design Systems</h3>
+            <p class="text-sm text-[#666666] leading-relaxed">
+              Building reusable token systems and component libraries in Figma that streamline designer-developer handoff and preserve consistency.
             </p>
           </div>
 
-          <div class="p-6 bg-surface border border-border-subtle rounded-2xl">
-            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brand/10 text-brand mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
+          <div class="p-8 bg-white border border-[#EAEAEA] rounded-2xl">
+            <div class="w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center font-heading font-bold text-xs mb-6 border border-[#EAEAEA]">
+              03
             </div>
-            <h3 class="font-display text-xl font-bold mb-2">User Research</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Validating assumptions through qualitative user testing, journey mapping, and wireframe prototypes before code delivery.
+            <h3 class="font-heading font-bold text-lg text-[#1A1A1A] mb-2">User Validation</h3>
+            <p class="text-sm text-[#666666] leading-relaxed">
+              Grounding decisions in user flows, wireframes, and usability testing to solve real workflow pain points rather than superficial aesthetics.
             </p>
           </div>
 
@@ -238,81 +188,72 @@
       </div>
     </section>
 
-    <!-- Selected Work Section -->
-    <section id="work" class="py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Selected Work -->
+    <section id="work" class="py-24 border-b border-[#EAEAEA]">
+      <div class="max-w-6xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
-            <span class="text-xs font-bold text-brand uppercase tracking-widest">Case Studies</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-2">Selected Product Work</h2>
+            <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Portfolio</span>
+            <h2 class="font-heading text-3xl font-extrabold text-[#1A1A1A] mt-2">Selected Projects</h2>
           </div>
-          <p class="text-text-secondary text-sm max-w-md mt-4 md:mt-0">
-            A showcase of recent digital products, SaaS applications, and responsive web platforms.
-          </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <!-- Project 1 -->
-          <article class="bg-surface border border-border-subtle hover:border-brand rounded-2xl overflow-hidden transition-all group flex flex-col justify-between">
-            <div class="p-8">
-              <div class="flex items-center justify-between text-xs font-semibold text-text-muted mb-3">
-                <span>MOBILE APP & FINTECH</span>
+          <article class="p-8 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center text-xs font-semibold text-[#999999] mb-4">
+                <span>MOBILE APP & E-COMMERCE</span>
                 <span>2026</span>
               </div>
-              <h3 class="font-display text-2xl font-bold group-hover:text-brand transition-colors mb-3">GidaEats Food Logistics</h3>
-              <p class="text-text-secondary text-sm leading-relaxed mb-6">
-                Mobile food delivery experience tailored for last-mile addressing, offline driver sync, and dual voice-note directions.
+              <h3 class="font-heading text-2xl font-bold text-[#1A1A1A] mb-3">GidaEats Food Platform</h3>
+              <p class="text-sm text-[#666666] leading-relaxed mb-6">
+                Mobile food logistics app designed for address ambiguity, offline sync, and frictionless checkout in local transit environments.
               </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="text-xs px-2.5 py-1 bg-surface-light rounded-md text-text-secondary">Figma</span>
-                <span class="text-xs px-2.5 py-1 bg-surface-light rounded-md text-text-secondary">UX Research</span>
-                <span class="text-xs px-2.5 py-1 bg-surface-light rounded-md text-text-secondary">iOS</span>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Figma</span>
+                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">UX Research</span>
+                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Design System</span>
               </div>
             </div>
-            <div class="px-8 pb-8 pt-0">
-              <a href="https://arena-talent-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-brand hover:underline">
-                View Project Experience <span class="ml-1">↗</span>
-              </a>
-            </div>
+            <a href="https://arena-talent-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider font-bold text-[#1A1A1A] hover:underline inline-flex items-center">
+              View Experience <span class="ml-1">↗</span>
+            </a>
           </article>
 
-          <!-- Project 2 -->
-          <article class="bg-surface border border-border-subtle hover:border-brand rounded-2xl overflow-hidden transition-all group flex flex-col justify-between">
-            <div class="p-8">
-              <div class="flex items-center justify-between text-xs font-semibold text-text-muted mb-3">
-                <span>WEB APP & WORKSPACES</span>
+          <article class="p-8 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center text-xs font-semibold text-[#999999] mb-4">
+                <span>WEB APP & PRODUCTIVITY</span>
                 <span>2026</span>
               </div>
-              <h3 class="font-display text-2xl font-bold group-hover:text-brand transition-colors mb-3">NomadNest Remote Finder</h3>
-              <p class="text-text-secondary text-sm leading-relaxed mb-6">
-                Remote worker discovery engine with verified WiFi benchmarks, quiet workspaces, and community stay reviews.
+              <h3 class="font-heading text-2xl font-bold text-[#1A1A1A] mb-3">NomadNest Workspace Directory</h3>
+              <p class="text-sm text-[#666666] leading-relaxed mb-6">
+                Remote worker portal for locating work-ready cafes and verified high-speed Wi-Fi hubs across major nomad hubs.
               </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="text-xs px-2.5 py-1 bg-surface-light rounded-md text-text-secondary">Design System</span>
-                <span class="text-xs px-2.5 py-1 bg-surface-light rounded-md text-text-secondary">Responsive Web</span>
-                <span class="text-xs px-2.5 py-1 bg-surface-light rounded-md text-text-secondary">Prototyping</span>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Web UI</span>
+                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Prototyping</span>
+                <span class="text-xs px-2.5 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded text-[#666666]">Figma Tokens</span>
               </div>
             </div>
-            <div class="px-8 pb-8 pt-0">
-              <a href="https://geturgent2k.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-brand hover:underline">
-                View Live Showcase <span class="ml-1">↗</span>
-              </a>
-            </div>
+            <a href="https://geturgent2k.com/" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider font-bold text-[#1A1A1A] hover:underline inline-flex items-center">
+              View Showcase <span class="ml-1">↗</span>
+            </a>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- Foundational Mastery & Credentials Section -->
-    <section id="credentials" class="py-24 bg-surface/30 border-t border-border-subtle">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Foundational Mastery (Credentials) -->
+    <section id="credentials" class="py-24 border-b border-[#EAEAEA] bg-[#F5F5F5]/30">
+      <div class="max-w-6xl mx-auto px-6">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
-            <span class="text-xs font-bold text-brand uppercase tracking-widest">Academic & Industry</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-2">Foundational Mastery</h2>
+            <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Academic & Training</span>
+            <h2 class="font-heading text-3xl font-extrabold text-[#1A1A1A] mt-2">Foundational Mastery</h2>
           </div>
           <div class="mt-4 md:mt-0">
             <a 
@@ -320,7 +261,7 @@
               download="James_Ojubanire_CV.pdf"
               target="_blank" 
               rel="noopener noreferrer"
-              class="inline-flex items-center text-sm font-semibold text-brand hover:text-white px-4 py-2 border border-brand/40 hover:bg-brand rounded-lg transition-all"
+              class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] px-4 py-2 border border-[#1A1A1A] rounded-full hover:bg-[#1A1A1A] hover:text-white transition-all"
             >
               Download PDF →
             </a>
@@ -329,79 +270,67 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <!-- Card 1: B.A. Degree -->
+          <!-- Card 1 -->
           <div 
             onclick="openCertificateModal('B.A. Fine & Applied Arts', 'Tai Solarin University of Education', 'image 35.jpg')"
-            class="p-6 bg-surface border border-border-subtle hover:border-brand rounded-2xl cursor-pointer transition-all group flex flex-col justify-between"
+            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
           >
             <div>
-              <div class="text-xs font-semibold text-text-muted mb-2">2022</div>
-              <h4 class="font-display font-bold text-lg text-text-primary group-hover:text-brand transition-colors mb-2">
-                Bachelor's Degree
-              </h4>
-              <p class="text-sm text-text-secondary mb-1">Tai Solarin University of Education</p>
-              <p class="text-xs text-text-secondary">Second Class Upper (2:1)</p>
+              <div class="text-xs font-semibold text-[#999999] mb-3">2022</div>
+              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Bachelor's Degree</h4>
+              <p class="text-xs text-[#666666] mb-1">Tai Solarin University of Education</p>
+              <p class="text-xs text-[#999999]">Second Class Upper (2:1)</p>
             </div>
-            <div class="pt-6 flex items-center text-xs font-semibold text-brand">
-              <span>View Certificate</span>
-              <span class="ml-1">↗</span>
+            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
+              View Certificate ↗
             </div>
           </div>
 
-          <!-- Card 2: Product Design -->
+          <!-- Card 2 -->
           <div 
             onclick="openCertificateModal('Product Design (UI & UX)', 'TS Academy', 'image 37.jpg')"
-            class="p-6 bg-surface border border-border-subtle hover:border-brand rounded-2xl cursor-pointer transition-all group flex flex-col justify-between"
+            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
           >
             <div>
-              <div class="text-xs font-semibold text-text-muted mb-2">2026</div>
-              <h4 class="font-display font-bold text-lg text-text-primary group-hover:text-brand transition-colors mb-2">
-                Product Design (UI & UX)
-              </h4>
-              <p class="text-sm text-text-secondary mb-1">TS Academy</p>
-              <p class="text-xs text-text-secondary">Comprehensive 3-Month Training</p>
+              <div class="text-xs font-semibold text-[#999999] mb-3">2026</div>
+              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Product Design (UI & UX)</h4>
+              <p class="text-xs text-[#666666] mb-1">TS Academy</p>
+              <p class="text-xs text-[#999999]">Certified Professional Training</p>
             </div>
-            <div class="pt-6 flex items-center text-xs font-semibold text-brand">
-              <span>View Certificate</span>
-              <span class="ml-1">↗</span>
+            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
+              View Certificate ↗
             </div>
           </div>
 
-          <!-- Card 3: Web Dev & HTML -->
+          <!-- Card 3 -->
           <div 
             onclick="openCertificateModal('Web Dev & HTML Certification', 'Programming Hub', 'image 38.jpg')"
-            class="p-6 bg-surface border border-border-subtle hover:border-brand rounded-2xl cursor-pointer transition-all group flex flex-col justify-between"
+            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
           >
             <div>
-              <div class="text-xs font-semibold text-text-muted mb-2">2023 - 2024</div>
-              <h4 class="font-display font-bold text-lg text-text-primary group-hover:text-brand transition-colors mb-2">
-                Web Dev & HTML
-              </h4>
-              <p class="text-sm text-text-secondary mb-1">Google Programming Hub</p>
-              <p class="text-xs text-text-secondary">Core Web Standards & Architecture</p>
+              <div class="text-xs font-semibold text-[#999999] mb-3">2023 - 2024</div>
+              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Web Dev & HTML</h4>
+              <p class="text-xs text-[#666666] mb-1">Google Programming Hub</p>
+              <p class="text-xs text-[#999999]">Core Web Architecture</p>
             </div>
-            <div class="pt-6 flex items-center text-xs font-semibold text-brand">
-              <span>View Certificate</span>
-              <span class="ml-1">↗</span>
+            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
+              View Certificate ↗
             </div>
           </div>
 
-          <!-- Card 4: Ethical Hacking -->
+          <!-- Card 4 -->
           <div 
             onclick="openCertificateModal('Ethical Hacking Course', 'Programming Hub', 'image 39.jpg')"
-            class="p-6 bg-surface border border-border-subtle hover:border-brand rounded-2xl cursor-pointer transition-all group flex flex-col justify-between"
+            class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl cursor-pointer transition-all flex flex-col justify-between group"
           >
             <div>
-              <div class="text-xs font-semibold text-text-muted mb-2">2023 - 2024</div>
-              <h4 class="font-display font-bold text-lg text-text-primary group-hover:text-brand transition-colors mb-2">
-                Ethical Hacking
-              </h4>
-              <p class="text-sm text-text-secondary mb-1">Google Programming Hub</p>
-              <p class="text-xs text-text-secondary">Security & Advanced Coursework</p>
+              <div class="text-xs font-semibold text-[#999999] mb-3">2023 - 2024</div>
+              <h4 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">Ethical Hacking</h4>
+              <p class="text-xs text-[#666666] mb-1">Google Programming Hub</p>
+              <p class="text-xs text-[#999999]">Advanced Security Track</p>
             </div>
-            <div class="pt-6 flex items-center text-xs font-semibold text-brand">
-              <span>View Certificate</span>
-              <span class="ml-1">↗</span>
+            <div class="pt-6 text-xs font-semibold text-[#1A1A1A] group-hover:underline">
+              View Certificate ↗
             </div>
           </div>
 
@@ -409,179 +338,158 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="py-24">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-surface border border-border-subtle rounded-3xl p-8 sm:p-12 text-center">
-          <span class="text-xs font-bold text-brand uppercase tracking-widest">Get In Touch</span>
-          <h2 class="font-display text-3xl sm:text-5xl font-extrabold mt-3 mb-4">Let's build something exceptional.</h2>
-          <p class="text-text-secondary text-base max-w-xl mx-auto mb-8">
-            Whether you have an upcoming project, are looking to hire a dedicated remote UI/UX designer, or just want to connect.
-          </p>
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Inquiries</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#1A1A1A] mt-2 mb-4">Start a Conversation</h2>
+        <p class="text-sm text-[#666666] max-w-lg mx-auto mb-8">
+          Available for remote product design, landing page architecture, and design system contracts.
+        </p>
 
-          <form onsubmit="handleContactSubmit(event)" class="max-w-md mx-auto space-y-4 text-left">
-            <div>
-              <label class="block text-xs font-medium text-text-secondary mb-1">Your Name</label>
-              <input type="text" id="contact-name" required placeholder="John Doe" class="w-full px-4 py-3 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand">
-            </div>
-            <div>
-              <label class="block text-xs font-medium text-text-secondary mb-1">Your Message</label>
-              <textarea id="contact-message" required rows="3" placeholder="Tell me about your project or opportunity..." class="w-full px-4 py-3 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand"></textarea>
-            </div>
-            <button type="submit" class="w-full py-3.5 bg-brand hover:bg-brand-hover text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand/20">
-              Send Message (WhatsApp & Email)
-            </button>
-          </form>
-
-          <div class="flex items-center justify-center space-x-6 mt-8 text-sm text-text-muted">
-            <a href="https://linkedin.com/in/james-ojubanire-b91287166" target="_blank" rel="noopener noreferrer" class="hover:text-brand">LinkedIn</a>
-            <span>•</span>
-            <a href="mailto:oliyfemi107@gmail.com" class="hover:text-brand">oliyfemi107@gmail.com</a>
-            <span>•</span>
-            <span>Ijebu Ode, Ogun State</span>
+        <form onsubmit="handleContactSubmit(event)" class="space-y-4 max-w-md mx-auto text-left">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-1">Your Name</label>
+            <input type="text" id="contact-name" required placeholder="Name" class="w-full px-4 py-3 bg-[#F5F5F5] border border-[#EAEAEA] rounded-xl text-sm focus:outline-none focus:border-[#1A1A1A]">
           </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[#666666] mb-1">Your Message</label>
+            <textarea id="contact-message" required rows="3" placeholder="Tell me about your project..." class="w-full px-4 py-3 bg-[#F5F5F5] border border-[#EAEAEA] rounded-xl text-sm focus:outline-none focus:border-[#1A1A1A]"></textarea>
+          </div>
+          <button type="submit" class="w-full py-3.5 bg-[#1A1A1A] hover:bg-black text-white text-xs uppercase tracking-wider font-bold rounded-xl transition-all">
+            Send Message (WhatsApp & Email)
+          </button>
+        </form>
+
+        <div class="mt-8 flex justify-center space-x-6 text-xs text-[#999999]">
+          <a href="https://linkedin.com/in/james-ojubanire-b91287166" target="_blank" rel="noopener noreferrer" class="hover:text-[#1A1A1A]">LinkedIn</a>
+          <span>•</span>
+          <a href="mailto:oliyfemi107@gmail.com" class="hover:text-[#1A1A1A]">oliyfemi107@gmail.com</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ================= DECOUPLED BLOG VIEW ================= -->
-  <section id="blog-view" class="hidden min-h-screen py-16 bg-dark">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Decoupled Blog View -->
+  <section id="blog-view" class="hidden min-h-screen py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
       
-      <!-- Back button -->
-      <button 
-        onclick="toggleBlogView(false)" 
-        class="inline-flex items-center space-x-2 text-sm font-semibold text-text-secondary hover:text-brand mb-12 transition-colors"
-      >
-        <span>←</span>
-        <span>Back to Main Portfolio</span>
+      <button onclick="toggleBlogView(false)" class="text-xs uppercase tracking-wider font-semibold text-[#666666] hover:text-[#1A1A1A] mb-12 inline-flex items-center">
+        ← Back to Portfolio
       </button>
 
-      <div class="border-b border-border-subtle pb-8 mb-12">
-        <span class="text-xs font-bold text-brand uppercase tracking-widest">Articles & Case Breakdowns</span>
-        <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-2">Writing & Design Insights</h2>
-        <p class="text-text-secondary mt-3">Perspectives on design systems, mobile ergonomics, and digital products.</p>
+      <div class="border-b border-[#EAEAEA] pb-8 mb-12">
+        <span class="text-xs uppercase tracking-widest text-[#999999] font-bold">Writing</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#1A1A1A] mt-1">Design Notes & Articles</h2>
+        <p class="text-sm text-[#666666] mt-2">Field reflections on product design, user heuristics, and design tokens.</p>
       </div>
 
-      <!-- Dynamic Post Feed (Defaults to Clean Empty State) -->
-      <div id="blog-posts-container" class="space-y-6">
-        <!-- Rendered dynamically by JavaScript -->
-      </div>
+      <!-- Feed Container (Defaults to Empty State) -->
+      <div id="blog-posts-container" class="space-y-6"></div>
 
     </div>
   </section>
 
-  <!-- ================= CERTIFICATE MODAL POPUP ================= -->
-  <div id="cert-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-surface border border-border-light rounded-2xl max-w-2xl w-full p-6 relative overflow-hidden shadow-2xl">
-      <div class="flex items-center justify-between pb-4 border-b border-border-subtle">
+  <!-- Certificate Modal -->
+  <div id="cert-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-[#EAEAEA] rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b border-[#EAEAEA]">
         <div>
-          <h3 id="modal-cert-title" class="font-display text-lg font-bold text-text-primary">Certificate Preview</h3>
-          <p id="modal-cert-sub" class="text-xs text-text-secondary">Issuer</p>
+          <h3 id="modal-cert-title" class="font-heading font-bold text-base text-[#1A1A1A]">Certificate</h3>
+          <p id="modal-cert-sub" class="text-xs text-[#666666]">Issuer</p>
         </div>
-        <button onclick="closeCertificateModal()" class="text-text-secondary hover:text-white text-2xl font-bold leading-none p-2">&times;</button>
+        <button onclick="closeCertificateModal()" class="text-[#666666] hover:text-black text-2xl font-bold leading-none">&times;</button>
       </div>
 
-      <div class="mt-4 rounded-xl overflow-hidden bg-black flex items-center justify-center max-h-[70vh]">
+      <div class="mt-4 rounded-xl overflow-hidden bg-[#F5F5F5] flex items-center justify-center max-h-[70vh]">
         <img id="modal-cert-img" src="" alt="Certificate" class="w-full h-auto object-contain max-h-[65vh]">
       </div>
 
       <div class="mt-4 flex justify-end">
-        <button onclick="closeCertificateModal()" class="px-5 py-2 text-sm bg-surface-light border border-border-light hover:border-brand rounded-lg text-text-primary">
-          Close Preview
+        <button onclick="closeCertificateModal()" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg hover:border-[#1A1A1A]">
+          Close
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ================= ARTICLE VIEWER MODAL ================= -->
-  <div id="article-reader-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-surface border border-border-light rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col p-6 sm:p-8 relative shadow-2xl overflow-hidden">
-      <div class="flex items-center justify-between pb-4 border-b border-border-subtle">
-        <span id="reader-category" class="text-xs font-bold text-brand uppercase">Design</span>
-        <button onclick="closeArticleReader()" class="text-text-secondary hover:text-white text-2xl font-bold leading-none">&times;</button>
+  <!-- Article Reader Modal -->
+  <div id="article-reader-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-[#EAEAEA] rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 sm:p-8 relative shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between pb-4 border-b border-[#EAEAEA]">
+        <span id="reader-category" class="text-xs font-bold uppercase tracking-wider text-[#666666]">Article</span>
+        <button onclick="closeArticleReader()" class="text-[#666666] hover:text-black text-2xl font-bold leading-none">&times;</button>
       </div>
 
-      <div class="overflow-y-auto py-6 space-y-4 pr-2">
-        <h2 id="reader-title" class="font-display text-2xl sm:text-3xl font-extrabold text-text-primary"></h2>
-        <div id="reader-meta" class="text-xs text-text-muted"></div>
+      <div class="overflow-y-auto py-6 space-y-4 pr-1">
+        <h2 id="reader-title" class="font-heading text-2xl font-extrabold text-[#1A1A1A]"></h2>
+        <div id="reader-meta" class="text-xs text-[#999999]"></div>
         <img id="reader-img" src="" alt="" class="w-full rounded-xl object-cover max-h-80 hidden">
-        <div id="reader-body" class="text-text-secondary text-base leading-relaxed whitespace-pre-line pt-2"></div>
+        <div id="reader-body" class="text-sm text-[#666666] leading-relaxed whitespace-pre-line"></div>
       </div>
 
-      <div class="pt-4 border-t border-border-subtle flex justify-between items-center">
-        <a id="reader-live-btn" href="#" target="_blank" rel="noopener noreferrer" class="hidden text-sm font-semibold text-brand hover:underline">
-          Visit Live Work ↗
+      <div class="pt-4 border-t border-[#EAEAEA] flex justify-between items-center">
+        <a id="reader-live-btn" href="#" target="_blank" rel="noopener noreferrer" class="hidden text-xs font-bold uppercase tracking-wider text-[#1A1A1A] hover:underline">
+          Visit Project ↗
         </a>
-        <button onclick="closeArticleReader()" class="ml-auto px-5 py-2 text-sm bg-surface-light border border-border-light hover:border-brand rounded-lg text-text-primary">
-          Done Reading
+        <button onclick="closeArticleReader()" class="ml-auto px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg hover:border-[#1A1A1A]">
+          Done
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ================= SECRET ADMIN PUBLISHING STUDIO MODAL ================= -->
-  <!-- Opened secretly via Ctrl + Shift + A (Cmd + Shift + A on Mac) or triple-clicking the footer year -->
-  <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-surface border border-border-light rounded-2xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl">
-      <div class="flex items-center justify-between pb-4 border-b border-border-subtle mb-6">
-        <div class="flex items-center space-x-2">
-          <span class="w-3 h-3 rounded-full bg-brand"></span>
-          <h3 class="font-display text-lg font-bold">Admin Publishing Studio</h3>
-        </div>
-        <button onclick="closeAdminStudio()" class="text-text-secondary hover:text-white text-2xl font-bold leading-none">&times;</button>
+  <!-- Admin Modal (Zero Hints, 204620 Passcode) -->
+  <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-[#EAEAEA] rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b border-[#EAEAEA] mb-6">
+        <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-[#1A1A1A]">Access</h3>
+        <button onclick="closeAdminStudio()" class="text-[#666666] hover:text-black text-2xl font-bold leading-none">&times;</button>
       </div>
 
-      <!-- Password Prompt (No hints provided) -->
+      <!-- Auth Prompt -->
       <div id="admin-auth-view" class="space-y-4">
-        <p class="text-sm text-text-secondary">Enter administrator security key:</p>
-        <input type="password" id="admin-passcode" placeholder="••••••••" class="w-full px-4 py-3 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand">
-        <button onclick="authenticateAdmin()" class="w-full py-3 bg-brand hover:bg-brand-hover text-white font-semibold rounded-xl transition-all">
-          Authorize Access
+        <input type="password" id="admin-passcode" placeholder="••••••••" class="w-full px-4 py-3 bg-[#F5F5F5] border border-[#EAEAEA] rounded-xl text-sm focus:outline-none focus:border-[#1A1A1A]">
+        <button onclick="authenticateAdmin()" class="w-full py-3 bg-[#1A1A1A] hover:bg-black text-white text-xs uppercase tracking-wider font-bold rounded-xl transition-all">
+          Authorize
         </button>
       </div>
 
-      <!-- Post Form View -->
+      <!-- Post Form -->
       <div id="admin-form-view" class="hidden space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-text-secondary mb-1">Article Title</label>
-          <input type="text" id="post-title" required placeholder="Article title..." class="w-full px-4 py-2.5 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand">
+          <label class="block text-xs font-semibold text-[#666666] mb-1">Title</label>
+          <input type="text" id="post-title" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
         </div>
-
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-semibold text-text-secondary mb-1">Category / Tag</label>
-            <input type="text" id="post-category" placeholder="UI/UX, System, Web" class="w-full px-4 py-2.5 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand">
+            <label class="block text-xs font-semibold text-[#666666] mb-1">Category</label>
+            <input type="text" id="post-category" placeholder="UI/UX" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-text-secondary mb-1">Estimated Read Time</label>
-            <input type="text" id="post-readtime" placeholder="3 min read" class="w-full px-4 py-2.5 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand">
+            <label class="block text-xs font-semibold text-[#666666] mb-1">Read Time</label>
+            <input type="text" id="post-readtime" placeholder="3 min read" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
           </div>
         </div>
-
         <div>
-          <label class="block text-xs font-semibold text-text-secondary mb-1">Project / External Link (Optional)</label>
-          <input type="url" id="post-link" placeholder="https://example.com" class="w-full px-4 py-2.5 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand">
+          <label class="block text-xs font-semibold text-[#666666] mb-1">Link (Optional)</label>
+          <input type="url" id="post-link" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]">
         </div>
-
         <div>
-          <label class="block text-xs font-semibold text-text-secondary mb-1">Cover Image (Optional)</label>
-          <input type="file" id="post-image" accept="image/*" class="w-full text-xs text-text-secondary file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-surface-light file:text-text-primary hover:file:bg-brand">
+          <label class="block text-xs font-semibold text-[#666666] mb-1">Cover Image (Optional)</label>
+          <input type="file" id="post-image" accept="image/*" class="w-full text-xs text-[#666666]">
         </div>
-
         <div>
-          <label class="block text-xs font-semibold text-text-secondary mb-1">Article Content</label>
-          <textarea id="post-body" rows="4" placeholder="Write article content here..." class="w-full px-4 py-2.5 bg-dark border border-border-light rounded-xl text-text-primary focus:outline-none focus:border-brand"></textarea>
+          <label class="block text-xs font-semibold text-[#666666] mb-1">Content</label>
+          <textarea id="post-body" rows="4" class="w-full px-3 py-2 bg-[#F5F5F5] border border-[#EAEAEA] rounded-lg text-sm focus:outline-none focus:border-[#1A1A1A]"></textarea>
         </div>
-
-        <div class="flex space-x-3 pt-2">
-          <button onclick="publishArticle()" class="flex-1 py-3 bg-brand hover:bg-brand-hover text-white font-semibold rounded-xl transition-all">
-            Publish Post
+        <div class="flex space-x-2 pt-2">
+          <button onclick="publishArticle()" class="flex-1 py-2.5 bg-[#1A1A1A] hover:bg-black text-white text-xs uppercase tracking-wider font-bold rounded-lg">
+            Publish
           </button>
-          <button onclick="resetAllPosts()" class="px-4 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 font-semibold rounded-xl text-xs">
-            Clear All
+          <button onclick="resetAllPosts()" class="px-4 py-2.5 bg-red-50 text-red-600 text-xs font-bold rounded-lg">
+            Clear
           </button>
         </div>
       </div>
@@ -589,29 +497,27 @@
     </div>
   </div>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-border-subtle py-12 bg-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-text-muted">
+  <!-- Footer -->
+  <footer class="border-t border-[#EAEAEA] py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#999999]">
       <div>
-        © <span id="secret-admin-trigger" class="cursor-pointer select-none">2026</span> James Ojubanire. All rights reserved.
+        © <span id="secret-admin-trigger" class="cursor-pointer select-none">2026</span> James Ojubanire.
       </div>
       <div class="flex space-x-6 mt-4 sm:mt-0">
-        <a href="#about" class="hover:text-text-secondary">About</a>
-        <a href="#work" class="hover:text-text-secondary">Work</a>
-        <button onclick="toggleBlogView(true)" class="hover:text-text-secondary">Blog</button>
-        <a href="#contact" class="hover:text-text-secondary">Contact</a>
+        <a href="#about" class="hover:text-[#1A1A1A]">About</a>
+        <a href="#work" class="hover:text-[#1A1A1A]">Work</a>
+        <button onclick="toggleBlogView(true)" class="hover:text-[#1A1A1A]">Blog</button>
+        <a href="#contact" class="hover:text-[#1A1A1A]">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- ================= LOGIC & STATE ENGINE ================= -->
+  <!-- Scripts -->
   <script>
-    // 1. Mobile Menu Toggle
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const hamburger = document.getElementById('hamburger-icon');
       const close = document.getElementById('close-icon');
-      
       const isOpen = !menu.classList.contains('hidden');
       if (isOpen) {
         menu.classList.add('hidden');
@@ -624,34 +530,25 @@
       }
     }
 
-    // 2. Dual-Action Contact Submission (WhatsApp + Email draft)
     function handleContactSubmit(e) {
       e.preventDefault();
       const name = encodeURIComponent(document.getElementById('contact-name').value.trim());
       const message = encodeURIComponent(document.getElementById('contact-message').value.trim());
-
       const phone = "2349043636302";
       const email = "oliyfemi107@gmail.com";
-
-      const whatsappUrl = `https://wa.me/${phone}?text=Hello%20James,%20my%20name%20is%20${name}.%20${message}`;
-      const mailtoUrl = `mailto:${email}?subject=Project%20Inquiry%20from%20${name}&body=${message}`;
-
-      window.open(whatsappUrl, '_blank');
-      window.location.href = mailtoUrl;
+      window.open(`https://wa.me/${phone}?text=Hello%20James,%20my%20name%20is%20${name}.%20${message}`, '_blank');
+      window.location.href = `mailto:${email}?subject=Inquiry%20from%20${name}&body=${message}`;
     }
 
-    // 3. Certificate Popup Modal
     function openCertificateModal(title, issuer, imageSrc) {
       document.getElementById('modal-cert-title').innerText = title;
       document.getElementById('modal-cert-sub').innerText = issuer;
-      
       const imgElem = document.getElementById('modal-cert-img');
       imgElem.src = imageSrc;
       imgElem.onerror = function() {
         this.onerror = null;
         this.src = imageSrc.replace('.jpg', '.png');
       };
-
       document.getElementById('cert-modal').classList.remove('hidden');
     }
 
@@ -659,11 +556,9 @@
       document.getElementById('cert-modal').classList.add('hidden');
     }
 
-    // 4. View Switcher (Main Portfolio vs Decoupled Blog)
     function toggleBlogView(showBlog) {
       const mainView = document.getElementById('main-portfolio-view');
       const blogView = document.getElementById('blog-view');
-      
       if (showBlog) {
         mainView.classList.add('hidden');
         blogView.classList.remove('hidden');
@@ -675,7 +570,6 @@
       }
     }
 
-    // 5. Blog Storage Engine & Clean Empty State
     const STORAGE_KEY = 'james_portfolio_blog_posts_v1';
 
     function getStoredPosts() {
@@ -694,14 +588,9 @@
 
       if (posts.length === 0) {
         container.innerHTML = `
-          <div class="py-16 text-center border border-dashed border-border-light rounded-2xl p-8 bg-surface/20">
-            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-surface flex items-center justify-center text-text-muted">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-lg text-text-primary mb-1">No publications yet</h3>
-            <p class="text-sm text-text-secondary max-w-sm mx-auto">
+          <div class="py-16 text-center border border-dashed border-[#EAEAEA] rounded-2xl p-8 bg-[#F5F5F5]/30">
+            <h3 class="font-heading font-bold text-base text-[#1A1A1A] mb-1">No publications yet</h3>
+            <p class="text-xs text-[#666666] max-w-sm mx-auto">
               New field notes, case study breakdowns, and design writings will appear here soon.
             </p>
           </div>
@@ -710,34 +599,31 @@
       }
 
       container.innerHTML = posts.map((post, index) => `
-        <article class="p-6 sm:p-8 bg-surface border border-border-subtle hover:border-brand rounded-2xl transition-all">
-          <div class="flex items-center justify-between text-xs text-text-muted mb-3">
-            <span class="font-semibold text-brand">${post.category || 'Article'}</span>
+        <article class="p-6 bg-white border border-[#EAEAEA] hover:border-[#1A1A1A] rounded-2xl transition-all">
+          <div class="flex items-center justify-between text-xs text-[#999999] mb-2">
+            <span class="font-semibold text-[#1A1A1A] uppercase">${post.category || 'Article'}</span>
             <span>${post.date || 'Recent'} • ${post.readTime || '3 min read'}</span>
           </div>
-          <h3 class="font-display text-2xl font-bold text-text-primary mb-3">${post.title}</h3>
-          <p class="text-text-secondary text-sm leading-relaxed mb-6 line-clamp-3">${post.content}</p>
-          <div class="flex items-center justify-between pt-4 border-t border-border-subtle/50 text-xs">
-            <button onclick="readArticle(${index})" class="font-semibold text-brand hover:underline">
+          <h3 class="font-heading text-xl font-bold text-[#1A1A1A] mb-2">${post.title}</h3>
+          <p class="text-[#666666] text-xs leading-relaxed mb-4 line-clamp-3">${post.content}</p>
+          <div class="flex items-center justify-between pt-3 border-t border-[#EAEAEA] text-xs">
+            <button onclick="readArticle(${index})" class="font-semibold text-[#1A1A1A] hover:underline">
               Read Story →
             </button>
-            ${post.link ? `<a href="${post.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand hover:underline">Live Link ↗</a>` : ''}
+            ${post.link ? `<a href="${post.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#1A1A1A] hover:underline">Link ↗</a>` : ''}
           </div>
         </article>
       `).join('');
     }
 
-    // 6. Article Reader Modal
     function readArticle(index) {
       const posts = getStoredPosts();
       const post = posts[index];
       if (!post) return;
-
       document.getElementById('reader-title').innerText = post.title;
-      document.getElementById('reader-category').innerText = post.category || 'Publication';
+      document.getElementById('reader-category').innerText = post.category || 'Article';
       document.getElementById('reader-meta').innerText = `${post.date || 'Recent'} • ${post.readTime || '3 min read'}`;
       document.getElementById('reader-body').innerText = post.content;
-
       const imgElem = document.getElementById('reader-img');
       if (post.image) {
         imgElem.src = post.image;
@@ -745,7 +631,6 @@
       } else {
         imgElem.classList.add('hidden');
       }
-
       const liveBtn = document.getElementById('reader-live-btn');
       if (post.link) {
         liveBtn.href = post.link;
@@ -753,7 +638,6 @@
       } else {
         liveBtn.classList.add('hidden');
       }
-
       document.getElementById('article-reader-modal').classList.remove('hidden');
     }
 
@@ -761,8 +645,6 @@
       document.getElementById('article-reader-modal').classList.add('hidden');
     }
 
-    // 7. Secret Admin Portal Engine
-    // Trigger via: Ctrl+Shift+A (or Cmd+Shift+A) OR Triple-clicking the footer 2026
     window.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
         e.preventDefault();
@@ -799,7 +681,7 @@
 
     function publishArticle() {
       const title = document.getElementById('post-title').value.trim();
-      const category = document.getElementById('post-category').value.trim() || 'Design';
+      const category = document.getElementById('post-category').value.trim() || 'UI/UX';
       const readTime = document.getElementById('post-readtime').value.trim() || '3 min read';
       const link = document.getElementById('post-link').value.trim();
       const content = document.getElementById('post-body').value.trim();
@@ -823,16 +705,13 @@
         };
         posts.unshift(newPost);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-        alert('Article published successfully!');
-        
-        // Reset form
+        alert('Article published.');
         document.getElementById('post-title').value = '';
         document.getElementById('post-category').value = '';
         document.getElementById('post-readtime').value = '';
         document.getElementById('post-link').value = '';
         document.getElementById('post-body').value = '';
         imageInput.value = '';
-
         closeAdminStudio();
         renderBlogPosts();
       };
@@ -847,22 +726,17 @@
     }
 
     function resetAllPosts() {
-      if (confirm('Are you sure you want to delete all posts and revert to the empty state?')) {
+      if (confirm('Clear all articles?')) {
         localStorage.removeItem(STORAGE_KEY);
-        alert('All articles removed.');
         closeAdminStudio();
         renderBlogPosts();
       }
     }
 
-    // Modal background click dismiss handlers
     window.onclick = function(event) {
-      const certModal = document.getElementById('cert-modal');
-      const readerModal = document.getElementById('article-reader-modal');
-      const adminModal = document.getElementById('admin-modal');
-      if (event.target === certModal) closeCertificateModal();
-      if (event.target === readerModal) closeArticleReader();
-      if (event.target === adminModal) closeAdminStudio();
+      if (event.target === document.getElementById('cert-modal')) closeCertificateModal();
+      if (event.target === document.getElementById('article-reader-modal')) closeArticleReader();
+      if (event.target === document.getElementById('admin-modal')) closeAdminStudio();
     };
   </script>
 </body>
